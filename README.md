@@ -30,6 +30,8 @@ The v5 dock retrofit (stop pads, cradle columns, T-gauge and the R2 head option)
 ([SVG version](docs/diagrams/dock_v5_retrofit.svg))
 
 ## Video
+**manual_swap_teleop_multicam.mp4**: Manual swap: a person drives the arm (hand-flown/teleop) to pick up a tool from the dock. Not automatic; no full automatic swap cycle yet. Three synced cameras (phone on the bench, wrist camera, overhead bench camera), mostly sped up, no sound.
+
 Real bench takes, 10/28, scene camera, low-res. They are attached to the [media-2026-10-30 release](https://github.com/chaseab/so101-toolchanger/releases/tag/media-2026-10-30). Failures stay in.
 
 No clip yet shows a lock clearly; the next bench session records every attempt.
@@ -41,24 +43,27 @@ No clip yet shows a lock clearly; the next bench session records every attempt.
 **real_take3_wrist_snap.mp4**: Real bench take, 10/28, scene camera. The wrist snaps over fast and a small black piece with a cable ends up on the mat. I am not claiming whether this run was hand-flown or scripted, and it is unclear whether the piece was dropped or let go. Not a clean swap. The arm has done 0 full automatic swaps so far.
 
 ## Bill of materials
-Full table: [docs/BOM.md](docs/BOM.md) (and `docs/BOM.csv`): every screw, insert, magnet, dowel, spring and printed part with size, quantity, source and what it is used for. Changer-core parts come first, future tools last. Bought parts for the changer core:
+**One tool changer (master + 1 tool coupler + 1 dock) = 20 printed parts (23 pieces, about 666 g) plus hardware.** Master 9 parts (11 pieces), tool coupler 3, dock 4 plus the 4-part R1 retrofit kit (5 pieces). Older versions, alternates, test coupons, the optional R2 dock head and the future tools are not counted. Full table with sizes, grams, filament, exact listings we bought and generic search links: [docs/BOM.md](docs/BOM.md) (and `docs/BOM.csv`). It has three sections: A one tool changer, B per extra tool, C optional and future.
 
-| Part | Qty (starter set) | Used for |
+Bought parts for one build:
+
+| Part | Qty | Used for |
 |---|---|---|
-| [Steel dowel pin, plain cylindrical 3 mm x 12 mm (pack of 50)](https://logicframeco.com/go/tc-dowel-3x12/github) | 28 | arm-side coupler, tool-side coupler, future tools |
-| [N52 neodymium disc magnet 6 mm x 3 mm (pack of 50)](https://logicframeco.com/go/tc-magnet-n52-6x3/github) | 8 | tool-side coupler, dock, future tools |
-| [Chrome steel ball 5/32 in (3.97 mm), G25 (pack of 100)](https://logicframeco.com/go/tc-ball-5-32/github) | 3 | arm-side coupler |
-| [Compression spring 5 mm OD x 0.7 mm wire x 10 mm free (pack of 10)](https://logicframeco.com/go/tc-spring-5x0.7x10/github) | 3 | arm-side coupler |
-| [M3 x 10 countersunk (flat head) hex socket screw, 90 deg (pack of 50)](https://logicframeco.com/go/tc-m3x10-csk/github) | 20 | tool-side coupler, future tools |
-| [M3 brass heat-set insert, 4.0 bore x 6.7 L](https://logicframeco.com/go/tc-m3-heat-insert-4.0x6.7/github) | 39 | arm-side coupler, tool-side coupler, future tools |
-| [M3 screws for the master (button head unless noted)](https://logicframeco.com/go/tc-m3-button-master/github) | 15 | arm-side coupler |
-| [M3 brass heat-set insert, 5.0 OD x 4 L (dock option R2 only)](https://logicframeco.com/go/tc-heat-insert-m3-5.0x4/github) | 4 | dock (R2 option) |
-| [Double-sided / VHB tape disc D10 x 0.4 mm](https://logicframeco.com/go/tc-vhb-tape-disc/github) | 2 | dock |
-| [Double-sided / VHB tape strip 23.6 x 14.8 x 0.4 mm](https://logicframeco.com/go/tc-vhb-tape-strip/github) | 2 | dock |
-| [PTFE grease, 0.75 oz tube](https://logicframeco.com/go/tc-ptfe-grease/github) | 1 | arm-side coupler, tool-side coupler |
+| Steel dowel pin 3 x 12 mm | 9 | arm-side V-seats (6), tool plate pins (3) |
+| N52 magnet 6 x 3 mm | 2 | tool neck, dock floor |
+| Chrome steel ball 5/32 in | 3 | plunger tips |
+| Compression spring 5 x 0.7 x 10 mm | 3 | plungers |
+| M3 x 10 countersunk screw | 8 | coupling plate (4), dock clamp bars (4) |
+| M3 heat-set insert 4.0 x 6.7 | 15 | arm side 7, tool neck 4, dock frame 4 |
+| M3 button-head screws (M3x5/6/8) | 13 | arm side |
+| M3 x 40 socket screw | 2 | servo cage to hub |
+| Double-sided tape discs / strips | 2 / 2 | dock R1 kit |
+| PTFE grease, CA glue | 1 / 1 | assembly |
+
+Each part, with its exact listing where we have one, is in [docs/BOM.md](docs/BOM.md).
 
 ## Build
-- Print the arm-side coupler, the tool-side coupler and the dock parts from `stl/` (`master_v4`, `tool_gt1`, `dock_v5`); the BOM lists material per part. STEP files are in `step/`.
+- Print the 20 parts listed in section A of the BOM from `stl/` (`master_v4`, `tool_gt1`, `dock_v5`); the BOM lists material and grams per part. STEP files are in `step/`.
 - Assemble with the hardware in the BOM: dowels glued into the ring's V grooves and the tool plate, ball plungers with springs, heat-set inserts, M3 screws, and one N52 6 x 3 magnet in the tool neck and one in the dock floor.
 - The dock retrofit kit (R1) prints with no cutting; the R2 head needs one jigsaw cut. See `docs/diagrams/dock_v5_retrofit.png`.
 - Design notes, lock-torque numbers and test results: `docs/DESIGN_v4.md`; bench procedure: `docs/RUNBOOK.html`.
