@@ -8,9 +8,9 @@ A tool changer for the SO-101 robot arm: a master on the wrist, a coupler on eac
 ## Status
 Work in progress: scripted locks achieved; no full automatic swap cycle yet. Scripted dock cycles and seat tests are logged; one lock was wiggle-verified by hand. 0 clean picks so far, and the lift-out from the dock still jams. Treat everything here as unproven design files.
 
-[![Manual swap: a person drives the arm (teleop) to pick up a tool from the dock, filmed from three cameras. Not automatic; no full automatic swap cycle yet.](docs/media/manual_swap_preview.gif)](https://github.com/chaseab/so101-toolchanger/releases/download/media-2026-10-30/manual_swap_teleop_multicam.mp4)
+https://github.com/user-attachments/assets/b7d32b12-1a1b-4e72-bdfa-cfc6b35f867a
 
-*Manual swap: a person drives the arm (teleop) to pick up a tool from the dock, filmed from three cameras. Not automatic; no full automatic swap cycle yet.* (click for the full video)
+*Manual swap: a person drives the arm (teleop) to pick up a tool from the dock, filmed from three cameras. Not automatic; no full automatic swap cycle yet.*
 
 ## The changer
 Exploded view of the master (arm side), the tool coupler and the dock, with every printed part, screw, insert, dowel, ball, spring and magnet numbered and sized. Concept render from the current CAD, not a photo.
@@ -34,6 +34,8 @@ The v5 dock retrofit (stop pads, cradle columns, T-gauge and the R2 head option)
 ([SVG version](docs/diagrams/dock_v5_retrofit.svg))
 
 ## Video
+[![Manual swap: a person drives the arm (teleop) to pick up a tool from the dock, filmed from three cameras. Not automatic; no full automatic swap cycle yet.](docs/media/manual_swap_preview.gif)](https://github.com/chaseab/so101-toolchanger/releases/download/media-2026-10-30/manual_swap_teleop_multicam.mp4)
+
 **manual_swap_teleop_multicam.mp4**: Manual swap: a person drives the arm (hand-flown/teleop) to pick up a tool from the dock. Not automatic; no full automatic swap cycle yet. Three synced cameras (phone on the bench, wrist camera, overhead bench camera), mostly sped up, no sound.
 
 Real bench takes, 10/28, scene camera, low-res. They are attached to the [media-2026-10-30 release](https://github.com/chaseab/so101-toolchanger/releases/tag/media-2026-10-30). Failures stay in.
