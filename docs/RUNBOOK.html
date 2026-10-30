@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Changer Arm Runbook</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* layout: one narrow column you scroll with one thumb; each step is a card with a GO / HANDS / CODE tag, E-stop pinned on top */
+:root{
+  --bg:#f3f5f4; --panel:#ffffff; --fg:#17201d; --muted:#5b6964; --line:#d5ddd9;
+  --go:#b42318; --go-bg:#fdecea; --hands:#8a5a00; --hands-bg:#fff4dc; --code:#1f5f8b; --code-bg:#e6f1f9;
+  --ok:#1d7a4a; --codebox:#eef2f0;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111715; --panel:#18211e; --fg:#e4ebe8; --muted:#9aaba4; --line:#2c3a35;
+  --go:#ff8a80; --go-bg:#3a1714; --hands:#f2c25b; --hands-bg:#33280f; --code:#8cc7f0; --code-bg:#13283a;
+  --ok:#6fd39d; --codebox:#0d1311; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#111715; --panel:#18211e; --fg:#e4ebe8; --muted:#9aaba4; --line:#2c3a35;
+  --go:#ff8a80; --go-bg:#3a1714; --hands:#f2c25b; --hands-bg:#33280f; --code:#8cc7f0; --code-bg:#13283a;
+  --ok:#6fd39d; --codebox:#0d1311; color-scheme:dark }
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 var(--sans);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+main{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+h1{font-size:1.55rem;line-height:1.2;margin:18px 0 2px;text-wrap:balance}
+h2{font-size:1.05rem;margin:0;text-wrap:balance}
+p{margin:0}
+.sub{color:var(--muted);font-size:.9rem}
+.estop{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--go-bg);color:var(--fg);border:2px solid var(--go);
+  border-radius:10px;padding:10px 12px;display:grid;gap:4px}
+.estop b{color:var(--go)}
+.flow{display:flex;flex-wrap:wrap;gap:6px;font-size:.82rem}
+.flow span{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:3px 10px;white-space:nowrap}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:8px;min-width:0}
+.head{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.n{font:600 .85rem var(--mono);color:var(--muted)}
+.tag{font:600 .7rem var(--mono);letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:1px 6px}
+.go{background:var(--go-bg);color:var(--go)}.hands{background:var(--hands-bg);color:var(--hands)}.code{background:var(--code-bg);color:var(--code)}
+pre{margin:0;background:var(--codebox);border:1px solid var(--line);border-radius:6px;padding:8px 10px;overflow-x:auto;font:13px/1.45 var(--mono)}
+ul{margin:0;padding-left:1.15em;display:grid;gap:3px}
+.watch{border-left:3px solid var(--hands);padding-left:9px}
+.pass{border-left:3px solid var(--ok);padding-left:9px}
+details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+summary{cursor:pointer;font-weight:600}
+details > *:not(summary){margin-top:8px}
+table{border-collapse:collapse;font-size:.85rem;width:100%}
+td,th{border-bottom:1px solid var(--line);padding:4px 6px;text-align:left;vertical-align:top}
+.tbl{overflow-x:auto}
+code{font-family:var(--mono);font-size:.88em}
+:focus-visible{outline:2px solid var(--code);outline-offset:2px}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Tool changer: real-arm runbook</h1>
+<p class="sub">SO-101 follower + ARM-9 v4 changer. Follow the steps top to bottom. Every <span class="tag go">go</span> step moves the arm and asks you to type <code>MOVE</code>. Run everything from <code>toolchanger\swap</code> in the lerobot venv. Written 2026-10-24; nothing on this page has run on the arm yet.</p>
+</header>
+
+<section class="estop" aria-label="E-stop">
+<p><b>E-STOP:</b> <b>Ctrl-C</b> in the run window, the big STOP button (<code>run_swap.py stopbutton</code>), or <code>run_swap.py stop</code> in a second window.</p>
+<p>The arm <b>holds torque where it is</b> (roll drops to 25 %, gripper stays capped). It never parks on its own after a stop. Then you choose: <code>PARK</code> (only if the tool is <i>not</i> in the dock), <code>LIMP</code> (support arm + tool first), or ENTER = exit holding.</p>
+<p>The 12 V switch drops the arm. Use it only with a hand under the arm.</p>
+</section>
+
+<div class="flow" aria-label="order"><span>0 setup</span><span>1 hand check</span><span>2 twist ladder</span><span>3 friction</span><span>4 teach</span><span>5 check</span><span>6 first drop</span><span>7 first pick</span><span>8 cycles</span></div>
+
+<pre>cd toolchanger/swap
+set PY=python  (the venv with lerobot installed)
+
+<article class="step">
+<div class="head"><span class="n">0</span><h2>Setup: backup, wide gripper calibration, dock position</h2><span class="tag hands">hands</span><span class="tag go">go (measure only)</span></div>
+<ul>
+<li>Back up the calibration: copy <code>%USERPROFILE%\.cache\huggingface\lerobot\calibration\robots\so_follower\follower_arm.json</code> to <code>calibration_backup\follower_arm_2026-10-24.json</code>.</li>
+<li><b>Dock position (new, 10/24):</b> put the dock so the seated coupling face is <b>310 mm</b> from the pan axis (not 274-280). With the 8.5 mm longer master, at 280 mm the routine's back-off pose needs the shoulder past its range. At 310 mm every waypoint clears SAFE_DEG by 5° or more. Screw it down and trace it in tape.</li>
+<li>Cable: the servo cable must stay at least 45 mm behind the dock wall face through the whole roll range.</li>
+<li>Wrist cam off (its hand-eye won't match on the cage).</li>
+</ul>
+<p>Wide gripper calibration: measure the blade entry angle once, then write <code>follower_arm_tc.json</code>. The measure step connects and releases only the gripper; the arm must be at rest.</p>
+<pre>%PY% gripcal.py measure        (type GO, turn the blade to the entry angle, ENTER)
+%PY% gripcal.py create --entry-tick &lt;number it printed&gt;
+%PY% gripcal.py check</pre>
+<p class="watch">Stock teleop keeps using <code>follower_arm</code>. Never teleop with <code>follower_arm_tc</code>: it would spin the blade 350°.</p>
+</article>
+
+<article class="step">
+<div class="head"><span class="n">1</span><h2>Hand sanity check (10 min)</h2><span class="tag hands">hands</span></div>
+<ul>
+<li>Arm unpowered on its stand. Turn the roll through its full range by hand: nothing rubs, the cable has slack at both ends.</li>
+<li>Lock and unlock the dummy tool on the master by hand 5 times: clean clicks.</li>
+<li>Lift the arm a little by the locked tool: it must not unlock.</li>
+<li>Offline check (no port):</li>
+</ul>
+<pre>%PY% run_swap.py check</pre>
+<p class="pass">Pass: <code>check: ok</code> except "no docks taught yet".</p>
+</article>
+
+<article class="step">
+<div class="head"><span class="n">2</span><h2>Twist ladder at the service pose</h2><span class="tag go">needs your go</span></div>
+<p>The arm leaves rest, holds the coupling pointing forward about 200 mm up, roll at the entry angle. Only the roll moves. Each twist waits for your ENTER: present the tool at the entry angle, hold its <b>body</b> firmly, keep fingers off the plate and skirt. The reaction is at most 2.5 N·m, about a jar lid.</p>
+<pre>%PY% run_swap.py --dry-run --speed 1 twist      (rehearse, no port)
+%PY% run_swap.py --speed 0.5 twist --levels 45 --tries 1
+%PY% run_swap.py --speed 1 twist --levels 45,55,65,75,85 --tries 3</pre>
+<p>It prints the roll protection registers first. If it says <code>PROTECTION BLOCK</code> it stops before moving; read the line, then decide.</p>
+<p class="watch">Watch: the body stays still while the roll turns; no smell, no buzzing past the twist; roll temperature in the printout below 55 °C.</p>
+<p class="pass">Pass: locks 3/3 at 65 % or less, 10/10 unlocks at 85 % (<code>--levels 85 --tries 10</code>), rest error within ±2.5°. Note each peak load (N·m). If it needs 75 %, cut the overtravel to 2° before step 6.</p>
+</article>
+
+<article class="step">
+<div class="head"><span class="n">3</span><h2>Friction calibration (about 50 s, no contact)</h2><span class="tag go">needs your go</span></div>
+<p>Each of pan, lift, elbow and wrist_flex makes a slow ±8° triangle in free air, twice. Run it with the tool on. The result goes into <code>docks.json</code>.</p>
+<pre>%PY% run_swap.py --dry-run friction
+%PY% run_swap.py friction</pre>
+<p class="watch">Watch: smooth, slow motion; nothing near the dock or the table.</p>
+<p class="pass">Pass: the 2 runs agree within 30 % (printed). The larger band per joint is kept.</p>
+</article>
+
+<article class="step">
+<div class="head"><span class="n">4</span><h2>Teach the dock (arm limp, by hand)</h2><span class="tag go">needs your go</span><span class="tag hands">hands</span></div>
+<p>Tool locked on the master. Support the arm, type <code>LIMP</code>: the arm joints go limp, the blade keeps its capped torque. Seat the tool in the dock (neck on the land, body on the tail rest), hold the arm so it does not hang on the tool, ENTER. It records 3 times (re-seat between). Lift out and lay the arm on its rest. Torque stays off.</p>
+<pre>%PY% run_swap.py teach --dock post1</pre>
+<p class="pass">Pass: spread 0.3° or less per joint. Over 1° is refused as a mis-seat. The file carries the calibration fingerprint, so a re-calibration forces a re-teach.</p>
+</article>
+
+<article class="step">
+<div class="head"><span class="n">5</span><h2>Check with the taught dock</h2><span class="tag code">offline</span></div>
+<pre>%PY% run_swap.py check
+%PY% run_swap.py check --real          (read-only registers, arm at rest)</pre>
+<p class="pass">Pass: <code>check: ok</code>. It verifies the kinematics bridge (&lt; 0.5 mm), every routine waypoint inside SAFE_DEG, and the approach and park legs clear of the table and the dock.</p>
+</article>
+
+<article class="step">
+<div class="head"><span class="n">6</span><h2>First drop, half speed</h2><span class="tag go">needs your go</span></div>
+<p>Tool locked on the master, arm at rest. One hand near the arm, the other on Ctrl-C or the STOP button.</p>
+<pre>%PY% run_swap.py --dry-run swap --drop post1     (twin rehearsal)
+%PY% run_swap.py --speed 0.5 swap --drop post1</pre>
+<p class="watch">Watch: it goes up and over to a point 100 mm above and 60 mm back from the dock, comes down to 45 mm, slides over the slot, goes back once to weigh the tool (first drop of a session), returns over the slot, lowers in, presses about 1 mm, twists 49°, backs straight out 30 mm, then weighs again without the tool. Stop if the tool touches anything on the way in, if anything scrapes, or if it pushes hard into the dock.</p>
+<p class="pass">Pass: <code>1/1 actions ok</code>, tool sitting flat on the tail rest, exit 0 (parked, torque released at rest).</p>
+</article>
+
+<article class="step">
+<div class="head"><span class="n">7</span><h2>First pick, half speed</h2><span class="tag go">needs your go</span></div>
+<pre>%PY% run_swap.py --speed 0.5 swap --pick post1</pre>
+<p class="watch">Watch: the blade spins to its entry angle while far from the dock (normal), the master comes in on the axis, the blade searches (short ticks), then the roll twists. A wiggle of ±4° follows. Then it lifts 3 mm, waits, lifts out and weighs.</p>
+<p class="pass">Pass: <code>ok</code>; the log lines show roll error within 2.5°, wiggle under 2.2°, a blade stall, and load_F clearly above the no-tool value.</p>
+</article>
+
+<article class="step">
+<div class="head"><span class="n">8</span><h2>Cycles</h2><span class="tag go">needs your go</span></div>
+<pre>%PY% run_swap.py --speed 0.5 swap --cycle 5 --dock post1
+%PY% run_swap.py --speed 1.0 swap --cycle 5 --dock post1      (only after 5 clean at 0.5)
+%PY% run_swap.py --speed 1.0 swap --cycle 20 --dock post1</pre>
+<p class="watch">Twin result for this exact code: 11/12 seeds complete at 0.5, 10/11 at 1.0. The one repeat miss is the loaded lift-out after a pick (shoulder can't keep up): it ends in a hold with the tool on the master. If it happens on the arm, answer PARK once you have looked.</p>
+<p class="pass">Milestone 1: 20 drop + pick cycles in a row, no hand help, no NEEDS_ATTENTION. Milestone 2: at least 48 of 50 over 2 sessions with a power cycle between, every failure ending in a hold.</p>
+</article>
+
+<details>
+<summary>What the code does when something goes wrong</summary>
+<div class="tbl"><table>
+<tr><th>Situation</th><th>What the arm does</th></tr>
+<tr><td>Any fault while the tool is engaged with the dock (inside the dock zone or a contact move)</td><td>Holds in place: body keeps its gravity support, push into the obstruction is dropped, roll to 25 %, gripper re-capped, P gain unchanged. No park. Exit 4. Menu: LIMP or exit holding (PARK refused).</td></tr>
+<tr><td>E-stop anywhere</td><td>Same hold. Menu offers PARK only when not engaged.</td></tr>
+<tr><td>Routine says the lock or the weight check failed</td><td>Hold + menu (the tool may be half on the master). PARK after you have looked.</td></tr>
+<tr><td>Error outside contact (bus glitch, watchdog in free air)</td><td>Backs out along the axis to the away pose, then sweep's normal park; torque released at rest.</td></tr>
+<tr><td>Bus dead</td><td>Servos keep their last goal (torque on). Exit 4. Support the arm before reconnecting: lerobot's connect drops torque while it configures.</td></tr>
+</table></div>
+<p>Exit codes: 0 ok (parked) · 1 error, parked · 4 NEEDS ATTENTION, torque held · 6 plan rejected before motion · 7 watchdog, parked.</p>
+</details>
+
+<details>
+<summary>Limits and watchdogs</summary>
+<ul>
+<li>Gripper Torque_Limit 85 (0.25 N·m) for the whole session, read back every 2 s; roll 25 % free, 55 % insert, 85 % only for the twist.</li>
+<li>Command limiter: body 25°/s and 100°/s², roll 90°/s. When the routine asks for more, it waits until the command catches up, so paths and holds keep their shape.</li>
+<li>Jump guard: a commanded step over 6° per tick (roll 10°) is treated as a bug and refused.</li>
+<li>Tracking |ref − q| over 3° + that joint's measured friction band, for 3 ticks while engaged → hold. sweep's 12° following-error rule everywhere; outside contact a watchdog trip also holds (you choose PARK).</li>
+<li>Body load over 70 % for 0.4 s while engaged → hold. Roll stall: 90 % of its limit and 10° behind → hold.</li>
+<li>Temperature over 55 °C on 2 reads → stop.</li>
+<li>Far transfer legs run at P 32 (sweep's park gain); everything near the dock runs at P 16, as in the sim, with a 1 s settle after the switch.</li>
+</ul>
+</details>
+
+<details>
+<summary>Files</summary>
+<ul>
+<li><code>run_swap.py</code> entry point · <code>real_io.py</code> RealIO, TcSweep, RealSwapper · <code>jobs.py</code> sessions and checks · <code>gripcal.py</code> wide gripper calibration · <code>fakebus.py</code> fake bus + MuJoCo twin</li>
+<li>Logs: <code>swap\logs\</code> (25 Hz command/observation CSV + JSON summary per run). Docks: <code>swap\docks.json</code>.</li>
+<li>Tests: <code>python -m unittest test_real_io test_tool_session</code> (fast), <code>test_real_io_twin</code> (MuJoCo faults).</li>
+</ul>
+</details>
+</main>
+</body>
+</html>

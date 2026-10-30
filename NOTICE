@@ -1,0 +1,21 @@
+SO-101 tool changer
+Copyright (c) 2026 Chase Bonfiglio / Logic Frame Co
+
+This project builds on and calls the following Apache-2.0 licensed work. It does not
+redistribute their source files or meshes; link to the upstream repositories instead.
+
+- SO-ARM100 / SO-101 robot arm, TheRobotStudio
+  https://github.com/TheRobotStudio/SO-ARM100  (Apache-2.0)
+  The tool changer mounts on the SO-101 follower arm. Arm and servo meshes are NOT included here.
+
+- LeRobot, Hugging Face
+  https://github.com/huggingface/lerobot  (Apache-2.0)
+  The swap/ control code imports and drives the SO-101 through LeRobot.
+
+SO-101 is a TheRobotStudio design. This project is not affiliated with or endorsed by
+TheRobotStudio or Hugging Face.
+
+Design ideas were read for background from other tool changers (E3D, Jubilee, Prusa XL,
+StealthChanger); no geometry was copied from them.
+
+Parts and files are provided as-is, without warranty.

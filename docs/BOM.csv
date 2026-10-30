@@ -1,0 +1,103 @@
+part_id,part,qty,spec,used_in,used_for,vendor,source_type,link,vendor_url,approx_price_usd
+tc-so101-arm,"SO-101 arm (follower), TheRobotStudio design",1,"SO-ARM100 / SO-101 repo: printed parts, STS3215 servos, controller board",all (the arm the changer mounts on),the arm the changer mounts on,TheRobotStudio,upstream,https://logicframeco.com/go/tc-so101-arm,https://github.com/TheRobotStudio/SO-ARM100,~
+tc-dowel-3x12,"Steel dowel pin, plain cylindrical 3 mm x 12 mm (pack of 50)",28,"3 mm dia x 12 mm, 304 stainless, unthreaded",master 6; each of 5 tools/heads 3 (15); JG2 +1; HI5F +2; STAMP2 +4,"arm-side coupler, tool-side coupler, future tools",Amazon (MroMax),bought,https://logicframeco.com/go/tc-dowel-3x12,https://www.amazon.com/dp/B07ZF3478S,5.99
+tc-magnet-n52-6x3,N52 neodymium disc magnet 6 mm x 3 mm (pack of 50),8,"6 x 3 mm, N52, one per tool neck + one per dock floor",5 tools/heads 1 each; 3 docks 1 each,"tool-side coupler, dock, future tools",Amazon,bought,https://logicframeco.com/go/tc-magnet-n52-6x3,https://www.amazon.com/dp/B0GWM33Z8X,14.59
+tc-ball-5-32,"Chrome steel ball 5/32 in (3.97 mm), G25 (pack of 100)",3,"5/32 in, G25 chrome steel, non-magnetic",master plunger balls,arm-side coupler,Amazon (PGN),bought,https://logicframeco.com/go/tc-ball-5-32,https://www.amazon.com/dp/B07D9SHZRZ,7.95
+tc-spring-5x0.7x10,Compression spring 5 mm OD x 0.7 mm wire x 10 mm free (pack of 10),3,"5 mm OD, 0.7 mm wire, 10 mm free length, 304 stainless; about 10 N at 8.05 mm",master plungers,arm-side coupler,Amazon (MECCANIXITY),bought,https://logicframeco.com/go/tc-spring-5x0.7x10,https://www.amazon.com/dp/B0DX21BNJM,6.59
+tc-m3x10-csk,"M3 x 10 countersunk (flat head) hex socket screw, 90 deg (pack of 50)",20,"M3 x 10, 304 stainless, countersunk","coupling plate of each of 5 tools/heads, 4 each","tool-side coupler, future tools",Amazon,bought,https://logicframeco.com/go/tc-m3x10-csk,https://www.amazon.com/dp/B0H3GL2FSM,5.99
+tc-m3-heat-insert-4.0x6.7,"M3 brass heat-set insert, 4.0 bore x 6.7 L",39,"M3 thread, 4.0 mm bore, 6.7 mm long (shallow locating counterbore in the print)","master 7 (3 ring, 2 hub, 2 strap boss); neck of 5 tools/heads 4 each (20); housing of JG2/HI5F/STAMP2 4 each (12)","arm-side coupler, tool-side coupler, future tools",Amazon (FFVRVSS 600-pc set),generic,https://logicframeco.com/go/tc-m3-heat-insert-4.0x6.7,https://www.amazon.com/s?k=brass+heat+set+threaded+inserts+M3+for+3D+printing,~
+tc-m3x10-button,M3 x 10 button-head socket screw,2,M3 x 10 ISO 7380 button head (self-taps into the carriage bracket); +4 for the dock R2 option,STAMP2 2; dock v5 option R2 +4,"dock (R2 option), future tools",Amazon (Fgruh M2-M5 kit),generic,https://logicframeco.com/go/tc-m3x10-button,https://www.amazon.com/s?k=M3+button+head+socket+screws+assortment+kit,~
+tc-m3-button-master,M3 screws for the master (button head unless noted),15,"4x M3x6 button (hub to roll horn), 2x M3x40 socket head (cage to hub), 5x M3x8 button (3 ring to cage, 2 strap), 4x M3x5 button (carrier to gripper horn)",master,arm-side coupler,Amazon (Fgruh M2-M5 kit),generic,https://logicframeco.com/go/tc-m3-button-master,https://www.amazon.com/s?k=M3+button+head+socket+screws+assortment+kit,~
+tc-heat-insert-m3-5.0x4,"M3 brass heat-set insert, 5.0 OD x 4 L (dock option R2 only)",4,"M3 thread, 5.0 mm OD, 4 mm long",dock v5 option R2 head,dock (R2 option),Amazon (FFVRVSS 600-pc set),generic,https://logicframeco.com/go/tc-heat-insert-m3-5.0x4,https://www.amazon.com/s?k=brass+heat+set+threaded+inserts+M3+for+3D+printing,~
+tc-vhb-tape-disc,Double-sided / VHB tape disc D10 x 0.4 mm,2,10 mm dia x 0.4 mm,dock v5 stop pads,dock,any,generic,https://logicframeco.com/go/tc-vhb-tape-disc,https://www.amazon.com/s?k=double+sided+mounting+tape+0.4mm,~
+tc-vhb-tape-strip,Double-sided / VHB tape strip 23.6 x 14.8 x 0.4 mm,2,23.6 x 14.8 x 0.4 mm (cut from tape),dock v5 cradle columns,dock,any,generic,https://logicframeco.com/go/tc-vhb-tape-strip,https://www.amazon.com/s?k=double+sided+mounting+tape+0.4mm,~
+tc-ptfe-grease,"PTFE grease, 0.75 oz tube",1,all-purpose PTFE grease for the locking surfaces,master / coupling,"arm-side coupler, tool-side coupler",Amazon (Magnalube-G),generic,https://logicframeco.com/go/tc-ptfe-grease,https://www.amazon.com/s?k=PTFE+grease+tube,11.99
+tc-ca-glue,Cyanoacrylate gel glue,1,clear CA gel,assembly,assembly (all printed parts),any,generic,https://logicframeco.com/go/tc-ca-glue,https://www.amazon.com/s?k=super+glue+gel,4.73
+tc-pla-black,"PLA filament 1.75 mm, black (2 x 1 kg)",1,1.75 mm PLA,printed parts,printed parts,Amazon (ELEGOO),bought,https://logicframeco.com/go/tc-pla-black,https://www.amazon.com/dp/B0BM7465PB,23.73
+tc-pla-white,"PLA filament 1.75 mm, white",1,1.75 mm PLA,printed parts (white),printed parts,any,generic,https://logicframeco.com/go/tc-pla-white,https://www.amazon.com/s?k=PLA+filament+1.75mm+white,~
+tc-tpu-95a,TPU 95A filament 1.75 mm,1,"1.75 mm TPU 95A (fin-ray fingers, master pads)",printed TPU parts,"printed parts (TPU pads, fingers)",Amazon (Polymaker),generic,https://logicframeco.com/go/tc-tpu-95a,https://www.amazon.com/s?k=TPU+95A+filament+1.75mm,~
+tc-master-master-backpad-pla-v4,MASTER master backpad PLA v4 (printed),1,~1.0 g PLA; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_backpad_PLA_v4.stl,,~
+tc-master-master-backpad-tpu-v4,MASTER master backpad TPU v4 (printed),1,~1.0 g TPU; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_backpad_TPU_v4.stl,,~
+tc-master-master-cage-v4,MASTER master cage v4 (printed),1,~35.6 g PLA; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_cage_v4.stl,,~
+tc-master-master-carrier-v4,MASTER master carrier v4 (printed),1,~1.8 g PLA; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_carrier_v4.stl,,~
+tc-master-master-farpad-pla-v4,MASTER master farpad PLA v4 (printed),1,~0.2 g PLA; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_farpad_PLA_v4.stl,,~
+tc-master-master-farpad-tpu-v4,MASTER master farpad TPU v4 (printed),1,~0.2 g TPU; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_farpad_TPU_v4.stl,,~
+tc-master-master-hub-v4,MASTER master hub v4 (printed),1,~11.6 g PLA; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_hub_v4.stl,,~
+tc-master-master-plunger0-v4b,MASTER master plunger0 v4b (printed),1,~0.2 g PLA; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_plunger0_v4b.stl,,~
+tc-master-master-plunger1-v4b,MASTER master plunger1 v4b (printed),1,~0.2 g PLA; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_plunger1_v4b.stl,,~
+tc-master-master-plunger2-v4b,MASTER master plunger2 v4b (printed),1,~0.2 g PLA; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_plunger2_v4b.stl,,~
+tc-master-master-ring-v4q,MASTER master ring v4q (printed),1,~45.5 g PLA; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_ring_v4q.stl,,~
+tc-master-master-skirt-v4,MASTER master skirt v4 (printed),1,~13.4 g PLA; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_skirt_v4.stl,,~
+tc-master-master-strap-v4,MASTER master strap v4 (printed),1,~2.4 g PLA; STL in stl/,MASTER,arm-side coupler,printed in-house,printed,stl/master_v4/master_strap_v4.stl,,~
+tc-gt1-gt-body,GT1 gt body (printed),1,~50.3 g PLA; STL in stl/,GT1,tool-side coupler,printed in-house,printed,stl/tool_gt1/gt_body.stl,,~
+tc-gt1-gt-pins,GT1 gt pins (printed),1,~0.3 g PLA; STL in stl/,GT1,tool-side coupler,printed in-house,printed,stl/tool_gt1/gt_pins.stl,,~
+tc-gt1-gt-plate,GT1 gt plate (printed),1,~25.3 g PLA; STL in stl/,GT1,tool-side coupler,printed in-house,printed,stl/tool_gt1/gt_plate.stl,,~
+tc-gt1-gt-rotor,GT1 gt rotor (printed),1,~3.8 g PLA; STL in stl/,GT1,tool-side coupler,printed in-house,printed,stl/tool_gt1/gt_rotor.stl,,~
+tc-dock-db-bar-back,DOCK db bar back (printed),1,~17.5 g PLA; STL in stl/,DOCK,dock,printed in-house,printed,stl/master_v4/db_bar_back.stl,,~
+tc-dock-db-bar-front,DOCK db bar front (printed),1,~25.1 g PLA; STL in stl/,DOCK,dock,printed in-house,printed,stl/master_v4/db_bar_front.stl,,~
+tc-dock-db-frame,DOCK db frame (printed),1,~86.9 g PLA; STL in stl/,DOCK,dock,printed in-house,printed,stl/master_v4/db_frame.stl,,~
+tc-dock-dock-post-v4,DOCK dock post v4 (printed),1,~326.3 g PLA; STL in stl/,DOCK,dock,printed in-house,printed,stl/master_v4/dock_post_v4.stl,,~
+tc-dock-v5-cradle-col-l,DOCK-V5 cradle col L (printed),1,~23.7 g PLA; STL in stl/,DOCK-V5,dock,printed in-house,printed,stl/dock_v5/cradle_col_L.stl,,~
+tc-dock-v5-cradle-col-r,DOCK-V5 cradle col R (printed),1,~23.7 g PLA; STL in stl/,DOCK-V5,dock,printed in-house,printed,stl/dock_v5/cradle_col_R.stl,,~
+tc-dock-v5-dock-post-asbuilt,DOCK-V5 dock post asbuilt (printed),1,~326.3 g PLA; STL in stl/,DOCK-V5,dock,printed in-house,printed,stl/dock_v5/dock_post_asbuilt.stl,,~
+tc-dock-v5-head-r2,DOCK-V5 head R2 (printed),1,~79.3 g PLA; STL in stl/,DOCK-V5,dock,printed in-house,printed,stl/dock_v5/head_R2.stl,,~
+tc-dock-v5-stop-pad,DOCK-V5 stop pad (printed),1,~0.2 g PLA; STL in stl/,DOCK-V5,dock,printed in-house,printed,stl/dock_v5/stop_pad.stl,,~
+tc-dock-v5-stop-pad-l,DOCK-V5 stop pad L (printed),1,~0.2 g PLA; STL in stl/,DOCK-V5,dock,printed in-house,printed,stl/dock_v5/stop_pad_L.stl,,~
+tc-dock-v5-stop-pad-r,DOCK-V5 stop pad R (printed),1,~0.2 g PLA; STL in stl/,DOCK-V5,dock,printed in-house,printed,stl/dock_v5/stop_pad_R.stl,,~
+tc-dock-v5-t-gauge,DOCK-V5 t gauge (printed),1,~19.6 g PLA; STL in stl/,DOCK-V5,dock,printed in-house,printed,stl/dock_v5/t_gauge.stl,,~
+tc-m3x6-button,M3 x 6 button-head socket screw,16,M3 x 6 ISO 7380 button head,JG2 3; HI5F 9; STAMP2 4,future tools,Amazon (Fgruh M2-M5 kit),generic,https://logicframeco.com/go/tc-m3x6-button,https://www.amazon.com/s?k=M3+button+head+socket+screws+assortment+kit,~
+tc-m3x8-button,M3 x 8 button-head socket screw,24,M3 x 8 ISO 7380 button head (some self-tap into printed bosses),JG2 6; HI5F 8; STAMP2 5; FR1 5,future tools,Amazon (Fgruh M2-M5 kit),generic,https://logicframeco.com/go/tc-m3x8-button,https://www.amazon.com/s?k=M3+button+head+socket+screws+assortment+kit,~
+tc-m3x25-button,M3 x 25 socket screw,2,M3 x 25 button/socket head,FR1 2,future tools,Amazon,generic,https://logicframeco.com/go/tc-m3x25-button,https://www.amazon.com/s?k=M3+x+25+socket+head+cap+screws,~
+tc-m3-nut,M3 hex nut (pack of 200),2,M3 x 0.5 hex nut,FR1 2,future tools,Amazon (Yinpecly),generic,https://logicframeco.com/go/tc-m3-nut,https://www.amazon.com/s?k=M3+hex+nuts,5.99
+tc-m3-washer,M3 flat washer 3 mm ID x 9 mm OD (pack of 100),4,"M3, about 9 mm OD, stainless",JG2 1; HI5F 1; STAMP2 1; FR1 1,future tools,Amazon,bought,https://logicframeco.com/go/tc-m3-washer,https://www.amazon.com/dp/B0DK6GQK78,4.99
+tc-jg2-plate,JG2 plate (printed),1,~19.4 g PLA; STL in stl/,JG2,Jenga pusher tool (future),printed in-house,printed,stl/heads_jg2/plate.stl,,~
+tc-jg2-rotor,JG2 rotor (printed),1,~2.9 g PLA; STL in stl/,JG2,Jenga pusher tool (future),printed in-house,printed,stl/heads_jg2/rotor.stl,,~
+tc-jg2-shaft,JG2 shaft (printed),1,~1.2 g PLA; STL in stl/,JG2,Jenga pusher tool (future),printed in-house,printed,stl/heads_jg2/shaft.stl,,~
+tc-jg2-housing,JG2 housing (printed),1,~25.9 g PLA; STL in stl/,JG2,Jenga pusher tool (future),printed in-house,printed,stl/heads_jg2/housing.stl,,~
+tc-jg2-hub,JG2 hub (printed),1,~1.4 g PLA; STL in stl/,JG2,Jenga pusher tool (future),printed in-house,printed,stl/heads_jg2/hub.stl,,~
+tc-jg2-nose,JG2 nose (printed),1,~15.6 g PLA; STL in stl/,JG2,Jenga pusher tool (future),printed in-house,printed,stl/heads_jg2/nose.stl,,~
+tc-jg2-bevel-a,JG2 bevel a (printed),1,~0.5 g PLA; STL in stl/,JG2,Jenga pusher tool (future),printed in-house,printed,stl/heads_jg2/bevel_a.stl,,~
+tc-jg2-pinion-unit,JG2 pinion unit (printed),1,~1.6 g PLA; STL in stl/,JG2,Jenga pusher tool (future),printed in-house,printed,stl/heads_jg2/pinion_unit.stl,,~
+tc-jg2-carriage,JG2 carriage (printed),1,~2.6 g PLA; STL in stl/,JG2,Jenga pusher tool (future),printed in-house,printed,stl/heads_jg2/carriage.stl,,~
+tc-jg2-rod,JG2 rod (printed),1,~2.1 g PLA; STL in stl/,JG2,Jenga pusher tool (future),printed in-house,printed,stl/heads_jg2/rod.stl,,~
+tc-jg2-lid,JG2 lid (printed),1,~2.6 g PLA; STL in stl/,JG2,Jenga pusher tool (future),printed in-house,printed,stl/heads_jg2/lid.stl,,~
+tc-hi5f-plate,HI5F plate (printed),1,~19.4 g PLA; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/plate.stl,,~
+tc-hi5f-rotor,HI5F rotor (printed),1,~2.9 g PLA; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/rotor.stl,,~
+tc-hi5f-shaft,HI5F shaft (printed),1,~1.2 g PLA; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/shaft.stl,,~
+tc-hi5f-housing,HI5F housing (printed),1,~25.9 g PLA; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/housing.stl,,~
+tc-hi5f-hub,HI5F hub (printed),1,~4.8 g PLA; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/hub.stl,,~
+tc-hi5f-frame,HI5F frame (printed),1,~4.6 g PLA; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/frame.stl,,~
+tc-hi5f-hand,HI5F hand (printed),1,~10.1 g PLA; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/hand.stl,,~
+tc-hi5f-carriage,HI5F carriage (printed),1,~4.7 g PLA; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/carriage.stl,,~
+tc-hi5f-f-index,HI5F f index (printed),1,~3.6 g TPU; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/f_index.stl,,~
+tc-hi5f-f-middle,HI5F f middle (printed),1,~3.8 g TPU; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/f_middle.stl,,~
+tc-hi5f-f-ring,HI5F f ring (printed),1,~3.7 g TPU; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/f_ring.stl,,~
+tc-hi5f-f-pinky,HI5F f pinky (printed),1,~3.1 g TPU; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/f_pinky.stl,,~
+tc-hi5f-f-thumb,HI5F f thumb (printed),1,~2.5 g TPU; STL in stl/,HI5F,hand tool (future),printed in-house,printed,stl/heads_hi5f/f_thumb.stl,,~
+tc-stamp2-plate,STAMP2 plate (printed),1,~19.4 g PLA; STL in stl/,STAMP2,stamp tool (future),printed in-house,printed,stl/heads_stamp2/plate.stl,,~
+tc-stamp2-rotor,STAMP2 rotor (printed),1,~2.9 g PLA; STL in stl/,STAMP2,stamp tool (future),printed in-house,printed,stl/heads_stamp2/rotor.stl,,~
+tc-stamp2-shaft,STAMP2 shaft (printed),1,~1.2 g PLA; STL in stl/,STAMP2,stamp tool (future),printed in-house,printed,stl/heads_stamp2/shaft.stl,,~
+tc-stamp2-housing,STAMP2 housing (printed),1,~25.9 g PLA; STL in stl/,STAMP2,stamp tool (future),printed in-house,printed,stl/heads_stamp2/housing.stl,,~
+tc-stamp2-hub,STAMP2 hub (printed),1,~5.6 g PLA; STL in stl/,STAMP2,stamp tool (future),printed in-house,printed,stl/heads_stamp2/hub.stl,,~
+tc-stamp2-frame,STAMP2 frame (printed),1,~7.7 g PLA; STL in stl/,STAMP2,stamp tool (future),printed in-house,printed,stl/heads_stamp2/frame.stl,,~
+tc-stamp2-carriage,STAMP2 carriage (printed),1,~2.2 g PLA; STL in stl/,STAMP2,stamp tool (future),printed in-house,printed,stl/heads_stamp2/carriage.stl,,~
+tc-stamp2-rack,STAMP2 rack (printed),1,~1.5 g PLA; STL in stl/,STAMP2,stamp tool (future),printed in-house,printed,stl/heads_stamp2/rack.stl,,~
+tc-stamp2-die-rotor,STAMP2 die rotor (printed),1,~7.5 g PLA; STL in stl/,STAMP2,stamp tool (future),printed in-house,printed,stl/heads_stamp2/die_rotor.stl,,~
+tc-stamp2-die-cap,STAMP2 die cap (printed),1,~1.6 g TPU; STL in stl/,STAMP2,stamp tool (future),printed in-house,printed,stl/heads_stamp2/die_cap.stl,,~
+tc-fr1-plate,FR1 plate (printed),1,~25.3 g PLA; STL in stl/,FR1,fin-ray gripper tool (future),printed in-house,printed,stl/tool_fr1/plate.stl,,~
+tc-fr1-pins,FR1 pins (printed),1,~0.3 g PLA; STL in stl/,FR1,fin-ray gripper tool (future),printed in-house,printed,stl/tool_fr1/pins.stl,,~
+tc-fr1-rotor,FR1 rotor (printed),1,~3.8 g PLA; STL in stl/,FR1,fin-ray gripper tool (future),printed in-house,printed,stl/tool_fr1/rotor.stl,,~
+tc-fr1-shaft,FR1 shaft (printed),1,~1.5 g PLA; STL in stl/,FR1,fin-ray gripper tool (future),printed in-house,printed,stl/tool_fr1/shaft.stl,,~
+tc-fr1-body,FR1 body (printed),1,~49.2 g PLA; STL in stl/,FR1,fin-ray gripper tool (future),printed in-house,printed,stl/tool_fr1/body.stl,,~
+tc-fr1-cover,FR1 cover (printed),1,~9.8 g PLA; STL in stl/,FR1,fin-ray gripper tool (future),printed in-house,printed,stl/tool_fr1/cover.stl,,~
+tc-fr1-pinion,FR1 pinion (printed),1,~2.0 g PLA; STL in stl/,FR1,fin-ray gripper tool (future),printed in-house,printed,stl/tool_fr1/pinion.stl,,~
+tc-fr1-jaw1,FR1 jaw1 (printed),1,~15.4 g PLA; STL in stl/,FR1,fin-ray gripper tool (future),printed in-house,printed,stl/tool_fr1/jaw1.stl,,~
+tc-fr1-jaw2,FR1 jaw2 (printed),1,~15.4 g PLA; STL in stl/,FR1,fin-ray gripper tool (future),printed in-house,printed,stl/tool_fr1/jaw2.stl,,~
+tc-fr1-finray1,FR1 finray1 (printed),1,~11.1 g TPU; STL in stl/,FR1,fin-ray gripper tool (future),printed in-house,printed,stl/tool_fr1/finray1.stl,,~
+tc-fr1-finray2,FR1 finray2 (printed),1,~11.1 g TPU; STL in stl/,FR1,fin-ray gripper tool (future),printed in-house,printed,stl/tool_fr1/finray2.stl,,~
+tc-gt1-gt-cover,GT1 gt cover (printed),1,~10.0 g PLA; STL in stl/,GT1,gripper tool (future),printed in-house,printed,stl/tool_gt1/gt_cover.stl,,~
+tc-gt1-gt-finger,GT1 gt finger (printed),1,~15.5 g PLA; STL in stl/,GT1,gripper tool (future),printed in-house,printed,stl/tool_gt1/gt_finger.stl,,~
+tc-gt1-gt-jaw1,GT1 gt jaw1 (printed),1,~10.5 g PLA; STL in stl/,GT1,gripper tool (future),printed in-house,printed,stl/tool_gt1/gt_jaw1.stl,,~
+tc-gt1-gt-jaw2,GT1 gt jaw2 (printed),1,~10.5 g PLA; STL in stl/,GT1,gripper tool (future),printed in-house,printed,stl/tool_gt1/gt_jaw2.stl,,~
+tc-gt1-gt-pinion,GT1 gt pinion (printed),1,~2.0 g PLA; STL in stl/,GT1,gripper tool (future),printed in-house,printed,stl/tool_gt1/gt_pinion.stl,,~
+tc-gt1-gt-shaft,GT1 gt shaft (printed),1,~1.5 g PLA; STL in stl/,GT1,gripper tool (future),printed in-house,printed,stl/tool_gt1/gt_shaft.stl,,~

@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.bak*
+*.log
+logs/
+capture_out/
+*.mkv
+*.mp4
+*.gcode
+*.3mf
+*.npy
+.venv/
+venv/
+_tmp/
+scratch/
+.env

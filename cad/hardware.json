@@ -1,0 +1,4 @@
+{"kit_R1_print_now": {"printed": ["cradle_col_R + cradle_col_L (mirror pair)", "stop_pad_R + stop_pad_L (D10 x 1.6)", "t_gauge (alignment template, flat)"],
+ "bought_consumables": [{"qty": 2, "item": "double-sided/VHB tape disc D10 x 0.4 mm", "use": "stop pad to wall face"}, {"qty": 2, "item": "double-sided/VHB tape strip 23.6 x 14.8 x 0.4 mm", "use": "column to dock foot"}, {"qty": 1, "item": "sewing thread or string, ~0.6 m", "use": "sight line pan-axis mark through the 2 gauge holes"}],
+ "screws_inserts": "none"},
+ "option_R2_head_swap": {"printed": ["head_R2 (not sliced)"], "bought": [{"qty": 4, "item": "M3 heat-set insert 5.0 OD x 4", "use": "stump front face, y=+-45,+-53, z=-33, pilot-less melt through the flange holes"}, {"qty": 4, "item": "M3x10 button head screw", "use": "head flange to stump"}], "tools": "jigsaw, one straight cut at z=-24"}}
