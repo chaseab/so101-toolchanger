@@ -5,6 +5,13 @@ Commercial use of the hardware / kits: contact Logic Frame Co ([logicframeco.com
 
 A tool changer for the SO-101 robot arm: a master on the wrist, a coupler on each tool, and docks on the bench. Parts are 3D printed with a few dowels, magnets, balls and springs. The control code drives the arm through LeRobot.
 
+| | |
+|---|---|
+| ![Manual swap (teleop)](docs/media/manual_swap_teleop.gif) | ![Hand touches the tool at the dock, then the arm lifts away](docs/media/dock_touch_teleop.gif) |
+| *Manual swap (teleop): a person drives the arm.* | *Real bench take, 10/28, teleop session: a hand touches the tool at the dock, then the arm lifts away. Unclear whether it locked.* |
+
+Project page: [logicframeco.com/tool-changer](https://logicframeco.com/tool-changer)
+
 ## Status
 Work in progress: scripted locks achieved; no full automatic swap cycle yet. Scripted dock cycles and seat tests are logged; one lock was wiggle-verified by hand. 0 clean picks so far, and the lift-out from the dock still jams. Treat everything here as unproven design files.
 
