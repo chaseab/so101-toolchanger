@@ -4,7 +4,8 @@ import json, os, sys
 import numpy as np
 sys.argv += []
 import real_io as R
-CAL = json.load(open(os.path.expanduser(r"~/.cache/huggingface/lerobot/calibration/robots/so_follower/follower_arm.json")))
+import tc_config  # noqa: E402  (machine-specific settings: config.json, see config.example.json)
+CAL = json.load(open(tc_config.CALIBRATION))
 KEYS = ["shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex", "wrist_roll"]
 
 def d5_from_ticks(t):

@@ -1,0 +1,134 @@
+{
+ "P01": {
+  "pick": "pick_v12",
+  "unpick": "unpick_v4",
+  "saved": "2026-11-02 19:34:08",
+  "note": "10/10 streak program (11/02), flat 2-stage push + depth guard",
+  "ctl_at_save": "chain",
+  "steps": {
+   "pick": 16,
+   "unpick": 10,
+   "pick_retry": 12
+  }
+ },
+ "P02": {
+  "pick": "pick_f1",
+  "unpick": "unpick_f1",
+  "saved": "2026-11-02 19:34:09",
+  "note": "fast 1: blended free moves, contact speeds same real speed, lock pass <=2650",
+  "ctl_at_save": "chain",
+  "steps": {
+   "pick": 11,
+   "unpick": 6,
+   "pick_retry": 8
+  }
+ },
+ "P03": {
+  "pick": "pick_f2",
+  "unpick": "unpick_f2",
+  "saved": "2026-11-02 19:36:57",
+  "note": "ride over the y247 lip (z104.5) instead of pushing through; unlock roll 250",
+  "ctl_at_save": "chain",
+  "steps": {
+   "pick": 10,
+   "unpick": 6,
+   "pick_retry": 8
+  }
+ },
+ "P04": {
+  "pick": "pick_f3",
+  "unpick": "unpick_f2",
+  "saved": "2026-11-02 19:38:39",
+  "note": "crest z107.5 over the lip; pre-twist nose-up +0.02",
+  "ctl_at_save": "chain",
+  "steps": {
+   "pick": 11,
+   "unpick": 6,
+   "pick_retry": 9
+  }
+ },
+ "P05": {
+  "pick": "pick_f4",
+  "unpick": "unpick_f3",
+  "saved": "2026-11-02 19:40:27",
+  "note": "single fast twist (spd300, 5s), push-back/lift x1.5, faster insert + unlock roll",
+  "ctl_at_save": "chain",
+  "steps": {
+   "pick": 11,
+   "unpick": 6,
+   "pick_retry": 9
+  }
+ },
+ "P06": {
+  "pick": "pick_f5",
+  "unpick": "unpick_f4",
+  "saved": "2026-11-02 19:41:59",
+  "note": "free moves +30-50%, acc 60/120, seat press 3",
+  "ctl_at_save": "chain",
+  "steps": {
+   "pick": 11,
+   "unpick": 6,
+   "pick_retry": 9
+  }
+ },
+ "P07": {
+  "pick": "pick_f6",
+  "unpick": "unpick_f5",
+  "saved": "2026-11-02 19:43:44",
+  "note": "merged consecutive moves into blended vias (4 fewer stops)",
+  "ctl_at_save": "chain",
+  "steps": {
+   "pick": 9,
+   "unpick": 3,
+   "pick_retry": 7
+  }
+ },
+ "P08": {
+  "pick": "pick_f7",
+  "unpick": "unpick_f5",
+  "saved": "2026-11-02 19:45:11",
+  "note": "twist window 7 s; run with --profile fast (blended wiggle)",
+  "ctl_at_save": "chain",
+  "steps": {
+   "pick": 9,
+   "unpick": 3,
+   "pick_retry": 7
+  }
+ },
+ "P09": {
+  "pick": "pick_f8",
+  "unpick": "unpick_f6",
+  "saved": "2026-11-02 19:48:31",
+  "note": "free moves +30-50% again, acc 200 (needs ff ctl)",
+  "ctl_at_save": "chain+ff0/0.04/0.08/0.04",
+  "steps": {
+   "pick": 9,
+   "unpick": 3,
+   "pick_retry": 7
+  }
+ },
+ "P10": {
+  "pick": "pick_f9",
+  "unpick": "unpick_f7",
+  "saved": "2026-11-02 19:49:34",
+  "note": "contact legs x1.33 (lip 9, pushback 6/8, withdraw 16, insert 8/5); seat press stays 3",
+  "ctl_at_save": "chain+ff0/0.04/0.08/0.04",
+  "steps": {
+   "pick": 9,
+   "unpick": 3,
+   "pick_retry": 7
+  }
+ },
+ "P11": {
+  "pick": "pick_f10",
+  "unpick": "unpick_f7",
+  "saved": "2026-11-02 19:50:48",
+  "note": "P10 with the lip crossing back at 7 mm/s (9 re-loaded the elbow to 34 %)",
+  "ctl_at_save": "chain+ff0/0.04/0.08/0.04",
+  "steps": {
+   "pick": 9,
+   "unpick": 3,
+   "pick_retry": 7
+  }
+ }
+}

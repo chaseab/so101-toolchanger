@@ -17,11 +17,12 @@ import csv, json, os, shutil, subprocess, sys, time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-OUT = Path(os.environ.get("TC_CAPTURE_OUT", "capture_out"))
+import tc_config  # noqa: E402  (machine-specific settings: config.json, see config.example.json)
+OUT = Path(tc_config.CAPTURE_DIR)
 STATE = OUT / "capture_state.json"
 OWNER = HERE / "logs" / "capguard_owner.json"
 MARKS = HERE / "logs" / "marks.csv"
-GPY = os.environ.get("TC_PYTHON", "python")   # global python (cv2, PIL): from the lerobot venv a bare "python" resolves to the venv exe, whose capture start hangs (10/30)
+GPY = tc_config.CAPTURE_PYTHON   # global python (cv2, PIL): from the lerobot venv a bare "python" resolves to the venv exe, whose capture start hangs (10/30)
 MIN_FREE_GB = float(os.environ.get("TC_MIN_FREE_GB", "17.0"))   # override only to test the guard
 
 
@@ -49,6 +50,14 @@ def live_take():
     stamp = st.get("stamp")
     if not stamp or not any(_alive(p) for p in st.get("pids", [])):
         return None
+    live = [OUT / f"tc_scene_1028_{stamp}.mkv.latest.jpg"]     # dock cam required; wrist is a bonus (pm-eng 10/30;
+                                                              # its USB stream dropped at 17:48 and blocked a back-off)
+    if all(f.exists() for f in live):                    # recorders write these at 2 Hz (10/30): fresh = recording
+        for _ in range(10):
+            if all(time.time() - f.stat().st_mtime < 3 for f in live):
+                return stamp
+            time.sleep(0.3)
+        return None
     files = [f for f in (OUT / f"tc_scene_1028_{stamp}.mkv", OUT / f"tc_wrist_1028_{stamp}.mkv") if f.exists()]
     if len(files) < 2:
         return None
@@ -75,7 +84,7 @@ def require(script):
         if any(_alive(p) for p in st.get("pids", [])):
             raise SystemExit(f"[capguard] REFUSED: take {st.get('stamp')} recorders alive but files not growing, no motion")
     if stamp is None:
-        free = shutil.disk_usage("C:\\").free / 1e9
+        free = shutil.disk_usage(str(OUT)).free / 1e9
         if free < MIN_FREE_GB:
             raise SystemExit(f"[capguard] REFUSED: C: {free:.1f} GB free < {MIN_FREE_GB} GB, no take, no motion")
         subprocess.Popen([GPY, str(HERE / "capture.py"), "start"],    # global python (has cv2)
@@ -108,9 +117,26 @@ def release(script):
     print(f"[capguard] stopped take {o.get('stamp')}")
 
 
-def latest_frame(out_path, width=640):
-    """Newest dock-cam frame from the live take (the camera is busy while it records)."""
+def latest_frame(out_path, width=640, cam="scene"):
+    """Newest frame of the live take, from the recorder's <mkv>.latest.jpg (2 Hz). -sseof on the growing mkv returned a
+    STALE frame (10/30: identical images 10 min apart), so that path is gone. Raises if the live frame is > 3 s old."""
     st = json.loads(STATE.read_text())
+    src = OUT / f"tc_{cam}_1028_{st['stamp']}.mkv.latest.jpg"
+    for _ in range(10):
+        if src.exists() and time.time() - src.stat().st_mtime < 3:
+            break
+        time.sleep(0.3)
+    else:
+        raise RuntimeError(f"no fresh live frame {src.name}")
+    import shutil as _sh
+    for _ in range(5):                                   # copy fast (don't hold the recorder's file open), then scale
+        try:
+            _sh.copyfile(src, str(out_path) + ".src.jpg"); break
+        except OSError:
+            time.sleep(0.1)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(out_path) + ".src.jpg", "-vf", f"scale={width}:-1", str(out_path)],
+                   capture_output=True)
+    return out_path
     src = OUT / f"tc_scene_1028_{st['stamp']}.mkv"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-sseof", "-1.5", "-i", str(src), "-frames:v", "1",
                     "-vf", f"scale={width}:-1", str(out_path)], capture_output=True)

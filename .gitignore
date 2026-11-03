@@ -14,3 +14,5 @@ venv/
 _tmp/
 scratch/
 .env
+swap/config.json
+swap/refs/

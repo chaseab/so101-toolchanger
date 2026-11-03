@@ -39,7 +39,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]                                   # roboticarm/
-for p in (str(HERE), str(ROOT / "dashboard"), str(ROOT / "gripper" / "tools")):
+for p in (str(HERE),):                                  # splat/ and grip_cap.py are vendored next to this file
     if p not in sys.path:
         sys.path.insert(0, p)
 
@@ -73,9 +73,20 @@ def _master_drop(default: float = 8.5) -> float:
 MASTER_DROP_MM = _master_drop()
 #: coupling face on the roll axis, gripper_link frame (= sim site "face": Z_TOOL_FACE_LOCK -62.2 mm in the v3.1
 #: stack, -70.7 with the 10/24 master; the MuJoCo gripper body and fk's gripper_link agree to 0.01 mm / 0.001 deg)
-FACE_Z_M = -(62.2 + MASTER_DROP_MM) / 1000.0
+def _master_ext() -> float:
+    """11/02: extra master length along the tool axis from swap/master_config.json ({"kit": "v4"|"v2", "ext_mm": 0|7}).
+    v2 drive kit (sprung 3-tooth driver + spacer) = +7 mm (lead-tc2). Missing file = v4 = 0."""
+    import json
+    try:
+        return float(json.loads((HERE / "master_config.json").read_text())["ext_mm"])
+    except FileNotFoundError:
+        return 0.0
+
+
+MASTER_EXT_MM = _master_ext()
+FACE_Z_M = -(62.2 + MASTER_DROP_MM + MASTER_EXT_MM) / 1000.0
 #: changer tool tip on the roll axis: ~30 mm past the stock jaw tip (TIP_G 98 mm) in v3.1, + the master drop
-TC_TIP_Z_M = -(128.0 + MASTER_DROP_MM) / 1000.0
+TC_TIP_Z_M = -(128.0 + MASTER_DROP_MM + MASTER_EXT_MM) / 1000.0
 SKIRT_R_M = 0.040                       # skirt mouth radius (DESIGN_v4 r3: mouth r 40)
 TABLE_MIN_M = sweep.TIP_MIN_M           # 30 mm, same rule as sweep's jaw tip
 #: dock zone (dock frame mm, x along the tool axis into the wall, z up, origin = taught seat face): a segment that
@@ -480,7 +491,7 @@ class StopFlag:
             self.stop_file.unlink()                     # a stale STOP from an earlier run must not abort this one
         except FileNotFoundError:
             pass
-        except OSError as exc:                          # a file lock etc.: refuse to start rather than miss stops
+        except OSError as exc:                          # a file-sync lock etc.: refuse to start rather than miss stops
             raise SR.SwapError(f"cannot clear {self.stop_file} ({exc!r}); delete it by hand")
         return self
 

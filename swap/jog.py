@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""Raw-bus jog for the changer arm (COM8), no lerobot connect (its configure drops torque = the arm falls).
+"""Raw-bus jog for the changer arm (serial port from config.json), no lerobot connect (its configure drops torque = the arm falls).
 
     jog.py read                       positions (deg from mid, raw), load %, temp, torque
     jog.py hold                       goal := present on every torqued joint (kills a stall without moving)
@@ -23,7 +23,8 @@ from scservo_sdk import PacketHandler, PortHandler
 
 NAMES = ["pan", "lift", "elbow", "flex", "roll", "grip"]
 CAL_KEYS = ["shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex", "wrist_roll", "gripper"]
-CAL = json.load(open(os.path.expanduser(r"~/.cache/huggingface/lerobot/calibration/robots/so_follower/follower_arm.json")))
+import tc_config  # noqa: E402  (machine-specific settings: config.json, see config.example.json)
+CAL = json.load(open(tc_config.CALIBRATION))
 MAX_STEP = 50.0                      # deg per joint per call (planned + FK-checked moves)
 SPEED, ACC = 120, 10                 # Goal_Speed steps/s (~10.5 deg/s), Acceleration (x100 steps/s^2)
 STALL_LOAD = 90
@@ -41,7 +42,7 @@ class _FakePK:
     def __init__(self):
         import time as _t
         self._t = _t
-        self.reg = {i: {56: 2048, 42: 2048, 40: 1, 48: 800, 46: 0, 41: 0, 63: 35, 9: 0, 11: 4095, 55: 1} for i in range(1, 7)}
+        self.reg = {i: {56: 2048, 42: 2048, 40: 1, 48: 800, 46: 0, 41: 0, 63: 35, 62: 120, 9: 0, 11: 4095, 55: 1} for i in range(1, 7)}
         self.last = {i: _t.time() for i in range(1, 7)}
         self._state = os.environ.get("TC_FAKE_STATE")  # optional: positions shared across fake-bus processes
         self._mt = 0.0
@@ -81,7 +82,7 @@ FAKE = os.environ.get("TC_FAKE_BUS") == "1"
 if FAKE:
     port, pk = _FakePort(), _FakePK()
 else:
-    port = PortHandler("COM8"); port.openPort(); port.setBaudRate(1000000)
+    port = PortHandler(tc_config.PORT); port.openPort(); port.setBaudRate(1000000)
     pk = PacketHandler(0)
 import threading as _th
 BUS = _th.RLock()                    # the 10 Hz tracer thread and the motion code share one serial port
@@ -94,6 +95,24 @@ def rd(i, addr, n):
             if c == 0:
                 return v
     raise IOError(f"read id {i} addr {addr} failed")
+
+
+_SR = {"g": None}
+
+
+def rd_pos5():
+    """11/02 eve (overlay hilog): Present_Position of servos 1-5 in ONE sync-read transaction, so a 60-100 Hz logger
+    barely loads the bus. Fake bus or a failed sync read: 5 single reads."""
+    if not FAKE:
+        from scservo_sdk import GroupSyncRead
+        with BUS:
+            if _SR["g"] is None:
+                _SR["g"] = GroupSyncRead(port, pk, 56, 2)
+                for i in range(1, 6): _SR["g"].addParam(i)
+            g = _SR["g"]
+            if g.txRxPacket() == 0 and all(g.isAvailable(i, 56, 2) for i in range(1, 6)):
+                return [g.getData(i, 56, 2) for i in range(1, 6)]
+    return [rd(i, 56, 2) for i in range(1, 6)]
 
 
 _GUARD = {"done": False, "hold": False}

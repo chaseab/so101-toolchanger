@@ -17,6 +17,13 @@ ENC = ["-c:v", "libx264", "-preset", "veryfast", "-crf", "24", "-maxrate", "8M",
 
 
 def open_locked(index, exposure, gain, brightness, auto=False):
+    try:                                                 # 11/02 eve: never record a virtual camera (OBS placeholder incident)
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import camcheck
+        names = camcheck.dshow_names()
+        if names is not None and (index >= len(names) or camcheck.is_virtual(names[index])):
+            raise SystemExit(f"REFUSED: DSHOW index {index} is {names[index] if index < len(names) else 'missing'} (virtual / not a camera)")
+    except ImportError:
+        pass
     cap = cv2.VideoCapture(index, cv2.CAP_DSHOW)
     if not cap.isOpened():
         raise SystemExit(f"cannot open DSHOW index {index}")
@@ -82,6 +89,15 @@ def main():
         if a.preview and n % 2 == 0:                      # 15 fps view; the recording keeps every frame
             cv2.imshow(a.preview, cv2.resize(f, (960, 540), interpolation=cv2.INTER_AREA))
             cv2.waitKey(1)
+        if n % 15 == 0:                                   # live frame for the motion scripts (reading the growing mkv gave
+            sm = cv2.resize(f, (800, 450), interpolation=cv2.INTER_AREA)   # stale frames, 10/30): 2 Hz, atomic replace
+            if wbf:
+                import numpy as np
+                sm = np.clip(sm * np.array([a.wb_b, a.wb_g, a.wb_r]), 0, 255).astype("uint8")
+            try:                                          # a reader holding the jpg makes os.replace fail on Windows:
+                cv2.imwrite(a.out + ".latest.tmp.jpg", sm); os.replace(a.out + ".latest.tmp.jpg", a.out + ".latest.jpg")
+            except Exception:                             # skip this one (10/30 16:34 this killed the recorder)
+                pass
         if n % 30 == 0:
             if (a.stop_file and os.path.exists(a.stop_file)) or (a.secs and now - t0 >= a.secs):
                 break

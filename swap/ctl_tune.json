@@ -1,0 +1,1 @@
+{"ff_tau": [0.0, 0.04, 0.08, 0.04], "note": "11/02 eve: velocity feed-forward lead (s) per joint pan/lift/elbow/flex; measured lag 50/130/70 ms; zeros = off"}

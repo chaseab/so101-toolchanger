@@ -1,0 +1,32 @@
+{
+ "standoff": [
+  52.5,
+  234.0,
+  103.0,
+  0.05
+ ],
+ "ready": [
+  52.5,
+  205.0,
+  115.0,
+  0.05
+ ],
+ "entry": 3293,
+ "tool_seen": [
+  52.8,
+  248.4,
+  100.5,
+  0.0
+ ],
+ "chase_lock_1031": {
+  "t": "17:55-18:02",
+  "take": "175440",
+  "lineup_z": 100.5,
+  "entry_roll": 3293,
+  "push_to_y": 257,
+  "push_az": 0.04,
+  "lock_roll": "twist - from 3293 under axial push; ended ~2580-2693",
+  "lift": "pulled out to y~250 at z~107-112, then straight up; lift load 15-25%"
+ },
+ "tool_on": false
+}

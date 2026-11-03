@@ -1,0 +1,12 @@
+{
+ "port": "COM8",
+ "capture_dir": "~/tc_capture",
+ "calibration": "~/.cache/huggingface/lerobot/calibration/robots/so_follower/follower_arm.json",
+ "capture_python": null,
+ "_notes": {
+  "port": "follower arm serial port (Windows COMx, Linux /dev/ttyACM0)",
+  "capture_dir": "where camera takes, dock-check stills and lock.json go",
+  "calibration": "LeRobot follower calibration json for this arm",
+  "capture_python": "python with OpenCV for capture.py; null = the current interpreter"
+ }
+}

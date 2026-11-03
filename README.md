@@ -80,10 +80,20 @@ Each part, with its exact listing where we have one, is in [docs/BOM.md](docs/BO
 - The dock retrofit kit (R1) prints with no cutting; the R2 head needs one jigsaw cut. See `docs/diagrams/dock_v5_retrofit.png`.
 - Design notes, lock-torque numbers and test results: `docs/DESIGN_v4.md`; bench procedure: `docs/RUNBOOK.html`.
 
+## Run the scripted cycle
+The runner that produced the Nov 2 100-cycle results is in `swap/` (controller `nudge_web.py`, runner `cycle.py`, program registry `programs.py`, paths in `swap/paths/` and `swap/programs/P11/`). It is the version used for runs `c1102_205018` / `c1102_215723`; [`swap/RUNNER.md`](swap/RUNNER.md) lists the small differences (temperature filter v1 vs v2) and what was removed for publication.
+
+1. `cd swap && cp config.example.json config.json`, then set `port`, `capture_dir` and `calibration` (your LeRobot follower calibration).
+2. `mkdir logs refs`, then start the controller in its own terminal: `python -u nudge_web.py` (no motion on start).
+3. With the tool docked and the arm at its ready pose: `python programs.py run P11 100 --wiggle --fresh-refs --profile fast --rest-above 51`.
+4. To stop, create a file named `STOP` in `swap/` (the arm freezes and holds) or press Ctrl-C.
+
+`TC_FAKE_BUS=1` runs everything on a simulated bus for dry runs. The P11 paths are taught for one dock pose on one bench: re-teach them before running on another setup.
+
 ## Folder map
 - `cad/` CAD-as-code (build123d) for the master, docks and gripper tool, plus `cad/heads/` and `cad/tools/` for the future tools. Interference and lock-path checks are here too.
 - `stl/`, `step/` exported meshes of the current parts: `master_v4`, `dock_v5`, `tool_gt1`, plus `heads_*` and `tool_fr1` for the future tools.
-- `swap/` arm control and test code (capguard, jog, real_io, dockcycle, pick2, fakebus/sim_io, tests).
+- `swap/` arm control and test code: the P11 cycle runner (`nudge_web.py`, `cycle.py`, `programs.py`, see `swap/RUNNER.md`), plus earlier tools (capguard, jog, real_io, dockcycle, pick2, fakebus/sim_io, tests).
 - `sim/` MuJoCo contact model used by the sim twin.
 - `docs/` design notes (`DESIGN_v4.md`), runbook, `BOM.md` / `BOM.csv`, `diagrams/`, and `future_tools/`.
 - `data/` raw trial logs (100-cycle run, Nov 2) with a column dictionary.
@@ -92,7 +102,7 @@ Each part, with its exact listing where we have one, is in [docs/BOM.md](docs/BO
 - `LICENSES/` license texts. `NOTICE` upstream credits.
 
 Not included: SO-ARM100 / Feetech servo meshes (get them upstream), calibration files, footage, print files (gcode/3mf). Trial logs are in `data/`.
-**Missing dependencies:** some `swap/` scripts import modules that are not in this repo (`splat`, `grip_cap`, and `swap/capture.py`, the camera capture used by capguard), so they will not run unmodified. The scripted P11 cycle runner that produced the Nov 2 results (`cycle.py`, `nudge.py`, `programs.py`) is not published here yet. Paths and serials were scrubbed; set `TC_PYTHON`, `TC_CAPTURE_OUT` as needed.
+**Dependencies:** `splat/` (SO-101 kinematics) and `grip_cap.py` are now vendored in `swap/`. Still missing: `robust_teleop` (LeRobot bus retry patch, used only by `tc_teleop.py` and `splat/sweep.py`'s `connect_real`), MuJoCo for `sim_io.py`, and the `qtraj` trajectory player (hand-handoff and expressive moves only). Machine-specific settings (serial port, capture folder, calibration file) live in `swap/config.json`; copy `swap/config.example.json` to start.
 
 ## Licenses
 | What | Where | License |

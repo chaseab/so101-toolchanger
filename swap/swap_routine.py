@@ -368,9 +368,9 @@ def calibrate_friction(io: ArmIO, q_mid: np.ndarray, amp_deg: float = 8.0, perio
 
 
 def teach_dock(io: ArmIO, name: str, confirm: Callable[[str], None]) -> DockTeach:
-    """With the tool LOCKED on the master: owner hand-guides the arm until the tool sits in the dock (neck on the
+    """With the tool LOCKED on the master: operator hand-guides the arm until the tool sits in the dock (neck on the
     land, body on the tail rest).  The arm joints must be limp while he does it -> on the real arm this runs only
-    through sweep.py's torque-hold path with owner holding the arm.  Records the encoder angles."""
+    through sweep.py's torque-hold path with operator holding the arm.  Records the encoder angles."""
     confirm(f"Seat the tool in dock '{name}' by hand, then confirm")
     q = io.read_q()
     return DockTeach(name=name, q_seat=[round(float(v), 3) for v in q], blade_park=float(io.read_blade()))
