@@ -13,7 +13,7 @@ A tool changer for the SO-101 robot arm: a master on the wrist, a coupler on eac
 Project page: [logicframeco.com/tool-changer](https://logicframeco.com/tool-changer)
 
 ## Status
-Work in progress: scripted locks achieved; no full automatic swap cycle yet. Scripted dock cycles and seat tests are logged; one lock was wiggle-verified by hand. 0 clean picks so far, and the lift-out from the dock still jams. Treat everything here as unproven design files.
+**Status (Nov 2, 2026):** 10 scripted pick + put-back cycles in a row on the v4 coupling with the GT1 gripper, every pick checked with a wiggle test, and every pick lifted out of the dock. Of the 25 attempts logged that day, 3 failed (short push into the seat), all before the 10-cycle run. Next: the v2 drive and longer runs (100 attempts, dock moved). Treat everything here as unproven design files.
 
 https://github.com/user-attachments/assets/b7d32b12-1a1b-4e72-bdfa-cfc6b35f867a
 
