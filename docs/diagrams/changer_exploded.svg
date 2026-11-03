@@ -159,7 +159,7 @@ L 432 300.48
     <text style="fill: #1d232b; font: 8.6px 'Arial', 'DejaVu Sans'; text-anchor: start" x="457.92" y="968.425609" transform="rotate(-0 457.92 968.425609)">2x tape strip 23.6 x 14.8 x 0.4  [bought]</text>
    </g>
    <g id="text_41">
-    <text style="fill: #6b7480; font: 9px 'Arial', 'DejaVu Sans'; text-anchor: start" x="19.2" y="1010.331563" transform="rotate(-0 19.2 1010.331563)">Not drawn here: the T-gauge, thread and R2 head option (see the dock diagram). The tool body is the GT1 gripper (its jaws and cover screws are not itemised in the BOM). Hardware sizes nominal. CERN-OHL-W-2.0.</text>
+    <text style="fill: #6b7480; font: 9px 'Arial', 'DejaVu Sans'; text-anchor: start" x="19.2" y="1010.331563" transform="rotate(-0 19.2 1010.331563)">Not drawn here: the T-gauge, thread and R2 head option (see the dock diagram). The tool body is the GT1 gripper (jaws and cover screws not itemised in the BOM). Sizes nominal. CERN-OHL-W-2.0.</text>
    </g>
    <g id="line2d_2">
     <path d="M 149.816949 227.619561 
