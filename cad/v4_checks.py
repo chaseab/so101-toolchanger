@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """v4 geometry checks on the real CAD solids (exact OCC booleans) + the lock path on the exported ring mesh.
 
 1. Master (ring_v4 + dowels_v4 + skirt + plungers/balls + carrier) vs tool (plate + pins + rotor_v4) at ENTRY,

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Checks for the changer gripper tool v1 (build_gripper_tool.py).  Mesh-level, from the exported STLs.  2026-10-25.
   1 motion sweep s = 0..22 mm: every moving part vs every other part (intersection volume), pinion turned by -s/r
   2 stops: rack 1 / rack 2 hit their post past closed and the end wall past open; nothing else stops them first

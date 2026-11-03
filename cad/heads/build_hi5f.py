@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """HI5F: single-servo fin-ray hand for the SO-101 v4 tool changer (replaces the flat HI5 slab).  2026-10-30, heads-cool for pm-eng.
 Run (Idle priority, 1.5 GB watchdog inside): python toolchanger/heads_x3/build_hi5f.py -> heads_x3/hi5f/
 Nothing here is printed, bought or run on the arm.

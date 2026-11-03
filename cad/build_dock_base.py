@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Dock table mount v1: a frame that holds the C0 dock post (dock_post_v4, printed 10/25) fixed on the table.  2026-10-25,
 agent toolchanger-build.  Blocker (c): the dock must sit ~310 mm from the pan axis and move < 0.5 mm (TEST_PLAN D2).
 

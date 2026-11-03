@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """SO-101 tool changer v4 = v3.1 + the changes the docking sim (toolchanger/sim) showed were needed.  2026-10-04,
 agent toolchanger-3.  Imports build_changer (v3.1) and overrides only what changed; v3.1 files stay untouched.
 

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Interference check (exact OCC booleans), master vs tool parts at ENTRY, mid-ramp, CREST and LOCK (gripper frame).
 Also: blade vs rotor slot at lock.  Writes interference.json."""
 import json

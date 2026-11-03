@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """FR1: TPU fin ray parallel gripper for the SO-101 v4 tool changer.  2026-10-28, agent tc-tools2.
 Run:  python toolchanger/tools_x2/build_fr1.py
 Writes tools_x2/fr1/stl/*.stl (assembled pose at s = 0 = closed, TOOL frame) + fr1/parts.json.

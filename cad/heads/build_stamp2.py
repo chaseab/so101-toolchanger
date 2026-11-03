@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """STAMP2: single-servo FLIP stamp (Printy-style reveal) for the SO-101 v4 tool changer.  2026-10-30, heads-cool for pm-eng.
 Run (Idle priority, 1.5 GB watchdog inside): python toolchanger/heads_x3/build_stamp2.py -> heads_x3/stamp2/
 Nothing here is printed, bought or run on the arm.

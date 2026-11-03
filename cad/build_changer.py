@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """SO-101 automatic tool changer, CAD-as-code (build123d).  v3, 2026-10-04 (agent toolchanger-2).
 v2 = v1 + critic round 1 fixes; v3 = v2 + round 2 fixes; v3.1 = R3 fixes (toolchanger/reviews/R*.md; log in DESIGN.md s6).
 Run:  python toolchanger/cad/build_changer.py

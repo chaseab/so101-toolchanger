@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Ring v4p = ring v4 with DROP-IN dowel slots for a print pause.  2026-10-23, agent toolchanger-build.
 
 Why: the C1 print (10/23) took no dowels.  The v4 grooves are 3.05 mm horizontal bores, which print about 2.85 (rule

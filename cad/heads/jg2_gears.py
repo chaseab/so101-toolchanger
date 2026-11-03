@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Gear helpers for JG2 (involute spur, straight miter bevel by scaled loft, rack).  2026-10-30, pm-eng CAD worker.
 Printable PLA teeth: module 1.0, 20 deg, tooth thickness cut by BACKLASH_ARC at the pitch line.
 Bevel = Tredgold-style loft: the spur outline at the outer (back) end is scaled about the cone apex, so every tooth edge runs to the apex.

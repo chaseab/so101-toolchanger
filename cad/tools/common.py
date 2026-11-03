@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Shared bits for the round-2 tools (tools_x2).  2026-10-28, agent tc-tools2.
 
 TOOL frame = build_gripper_tool / build_changer: coupling face z = 0, tool along -z, +x = UP in the dock (the tool's -x face

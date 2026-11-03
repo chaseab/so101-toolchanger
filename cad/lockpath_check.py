@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Lock-path check on the exported ring mesh: for each twist angle, the lowest pin-centre height (above the lip
 top) at which a 3 mm radial pin clears the ring.  Confirms entry, ramp, crest, V seat and stop on real geometry."""
 import json, numpy as np, trimesh

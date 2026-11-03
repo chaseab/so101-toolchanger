@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """C1 bench cap: a flat 3 mm disc that screws onto the master ring's flat face (its 3 M3 inserts) and holds the 3 plunger
 springs at their 8.05 mm installed length, standing in for the arm-side carrier during bench tests.  2026-10-23,
 agent toolchanger-build (owner: "won't the plungers come out the back").

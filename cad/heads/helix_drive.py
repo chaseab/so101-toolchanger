@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """HELIX DRIVE: shared rotary-to-linear module for HI5F and STAMP2.  2026-10-30, heads-cool for pm-eng.  Nothing printed or bought.
 
 The jaw servo turns the rotor -> GT1 shaft -> HUB (= PEN1 stop dog + a DRUM r 8 with two helical grooves).  A CARRIAGE SLEEVE rides on the drum;

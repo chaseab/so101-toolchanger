@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Changer GRIPPER TOOL v1 (the first working tool for the v4 changer).  2026-10-25, agent toolchanger-build.
 Replaces the concept-level gripper_body / pinion of build_changer.py (DESIGN_v4 s5 "gripper body: still concept-level").
 

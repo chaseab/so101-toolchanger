@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """C1 bench RING cap: the bench cap with its middle cut out, so owner can watch the pins land in the V dowels from above.
 2026-10-23, agent toolchanger-build (owner: "a version of the cap where it just is a ring so i can see the pieces
 connect on the inside").

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Memory watchdog: import first.  Idle priority; self-kill above 1.5 GB working set (checked every 2 s). ctypes only (no psutil in the venv)."""
 import ctypes, os, threading, time
 from ctypes import wintypes

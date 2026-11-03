@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Ring v4q = ring v4p with a screw + heat-set insert BESIDE EACH SPRING.  2026-10-24, agent toolchanger-master.
 
 Why (owner 10/24, bench): the 3 mm bench cap visibly bowed where a spring sat far from a screw.  v4p inserts are at r 31,

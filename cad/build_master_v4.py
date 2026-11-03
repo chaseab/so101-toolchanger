@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Arm-side MASTER parts v4 (hub, cage, blade carrier, TPU back pad) for the SO-101 tool changer.  2026-10-24, agent
 toolchanger-master (sub-agent of toolchanger-build).  Imports build_changer (v3.1) and overrides only what had to change.
 

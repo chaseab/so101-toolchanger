@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Extra end-effectors for the SO-101 tool changer (v4 coupling).  2026-10-28, agent tc-tools.
 Run:  python toolchanger/tools_x/build_tools_x.py
 Writes tools_x/<tool>/stl/*.stl (assembled pose, TOOL frame) + tools_x/<tool>/parts.json.  Checks: check_tools_x.py

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """R3 fix verification: (1) blade vs rotor at ENTRY with the rotor floated 1.0 mm across the slot (worst case) -> the
 blade tip must land inside the lead-in chamfer, not on the rotor top; (2) carrier (button-head pockets) vs spigot
 at entry/crest/lock; (3) skirt vs ring overlap (should be 0 apart from the glued collar contact)."""

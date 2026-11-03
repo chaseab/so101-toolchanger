@@ -1,7 +1,6 @@
 # SO-101 tool changer
 
-Hardware: free for personal/non-commercial use (CC BY-NC-SA 4.0). Code: open source (GPL-3.0).
-Commercial use of the hardware / kits: contact Logic Frame Co ([logicframeco.com](https://logicframeco.com)).
+Open source hardware: CERN-OHL-W-2.0 (hardware), GPL-3.0-or-later (code), CC BY 4.0 (docs and data).
 
 A tool changer for the SO-101 robot arm: a master on the wrist, a coupler on each tool, and docks on the bench. Parts are 3D printed with a few dowels, magnets, balls and springs. The control code drives the arm through LeRobot.
 
@@ -13,11 +12,11 @@ A tool changer for the SO-101 robot arm: a master on the wrist, a coupler on eac
 Project page: [logicframeco.com/tool-changer](https://logicframeco.com/tool-changer)
 
 ## Status
-**Status (Nov 2, 2026):** 10 scripted pick + put-back cycles in a row on the v4 coupling with the GT1 gripper, every pick checked with a wiggle test, and every pick lifted out of the dock. Of the 25 attempts logged that day, 3 failed (short push into the seat), all before the 10-cycle run. Later the same day, a 100-cycle run on the same setup: 100/100 picks first try (each wiggle-tested), 99/100 clean cycles (one cycle aborted on a sensor glitch and was completed), 29.6 s median cycle. Next: the v2 drive and a run with the dock moved. Treat everything here as unproven design files.
+**Status (Nov 3, 2026):** scripted, automatic pick and put-back cycles work at one known dock pose (tool GT1 on the v4 coupling, one SO-101, scripted controller, no learned policy). On Nov 2 a 100-cycle run gave 100/100 picks locked on the first try, each passing a wiggle test, and 99/100 put-backs; 199 of 200 dock operations completed. The one abort was a false servo temperature reading (the elbow read 56 C, then 150 C, while its real temperature was about 47 C); the watchdog stopped the arm and the run was resumed. There were 0 docking failures. Median cycle 29.6 s (pick + put-back). Three short runs just before it were stopped (operator stop before recording; dock camera misconfigured; one false temperature reading); they are logged too. Earlier the same day: 10 cycles in a row, with 3 failed attempts (short push into the seat) before that streak. Raw logs and a column dictionary are in [`data/`](data/). Not yet shown: a moved or rotated dock, other tools, other arms, or a learned policy.
 
 https://github.com/user-attachments/assets/b7d32b12-1a1b-4e72-bdfa-cfc6b35f867a
 
-*Manual swap: a person drives the arm (teleop) to pick up a tool from the dock, filmed from three cameras. Not automatic; no full automatic swap cycle yet.*
+*Manual swap (Oct 30): a person drives the arm (teleop) to pick up a tool from the dock, filmed from three cameras. Not the automatic cycle.*
 
 ## The changer
 Exploded view of the master (arm side), the tool coupler and the dock, with every printed part, screw, insert, dowel, ball, spring and magnet numbered and sized. Concept render from the current CAD, not a photo.
@@ -41,19 +40,19 @@ The v5 dock retrofit (stop pads, cradle columns, T-gauge and the R2 head option)
 ([SVG version](docs/diagrams/dock_v5_retrofit.svg))
 
 ## Video
-[![Manual swap: a person drives the arm (teleop) to pick up a tool from the dock, filmed from three cameras. Not automatic; no full automatic swap cycle yet.](docs/media/manual_swap_preview.gif)](https://github.com/chaseab/so101-toolchanger/releases/download/media-2026-10-30/manual_swap_teleop_multicam.mp4)
+[![Manual swap: a person drives the arm (teleop) to pick up a tool from the dock, filmed from three cameras. Not the automatic cycle.](docs/media/manual_swap_preview.gif)](https://github.com/chaseab/so101-toolchanger/releases/download/media-2026-10-30/manual_swap_teleop_multicam.mp4)
 
-**manual_swap_teleop_multicam.mp4**: Manual swap: a person drives the arm (hand-flown/teleop) to pick up a tool from the dock. Not automatic; no full automatic swap cycle yet. Three synced cameras (phone on the bench, wrist camera, overhead bench camera), mostly sped up, no sound.
+**manual_swap_teleop_multicam.mp4**: Manual swap: a person drives the arm (hand-flown/teleop) to pick up a tool from the dock. Not the automatic cycle. Three synced cameras (phone on the bench, wrist camera, overhead bench camera), mostly sped up, no sound.
 
 Real bench takes, 10/28, scene camera, low-res. They are attached to the [media-2026-10-30 release](https://github.com/chaseab/so101-toolchanger/releases/tag/media-2026-10-30). Failures stay in.
 
-No clip yet shows a lock clearly; the next bench session records every attempt.
+These takes are from Oct 28, before the scripted cycle worked; none of them shows a lock clearly.
 
 **real_take1_hand_touch_arm_lifts.mp4**: Real bench take, 10/28, scene camera. A hand touches the tool body at the dock, then the arm jerks up and away. This session was hand-flown with the leader arm (teleop), not an automatic swap. Whether this was a lock or just contact is unclear, and the yellow blow-out is the camera exposure. Failures stay in.
 
-**real_take2_swing_away.mp4**: Real bench take, 10/28, scene camera. The arm sits at the dock, then swings away and back. Scripted run, no cut and no sound. A lock is not visible here and the swing away may be a release, a jam or a test pull. The arm has done 0 full automatic swaps so far.
+**real_take2_swing_away.mp4**: Real bench take, 10/28, scene camera. The arm sits at the dock, then swings away and back. Scripted run, no cut and no sound. A lock is not visible here and the swing away may be a release, a jam or a test pull. (Oct 28, before the first automatic swap.)
 
-**real_take3_wrist_snap.mp4**: Real bench take, 10/28, scene camera. The wrist snaps over fast and a small black piece with a cable ends up on the mat. I am not claiming whether this run was hand-flown or scripted, and it is unclear whether the piece was dropped or let go. Not a clean swap. The arm has done 0 full automatic swaps so far.
+**real_take3_wrist_snap.mp4**: Real bench take, 10/28, scene camera. The wrist snaps over fast and a small black piece with a cable ends up on the mat. I am not claiming whether this run was hand-flown or scripted, and it is unclear whether the piece was dropped or let go. Not a clean swap. (Oct 28, before the first automatic swap.)
 
 ## Bill of materials
 **One tool changer (master + 1 tool coupler + 1 dock) = 20 printed parts (23 pieces, about 666 g) plus hardware.** Master 9 parts (11 pieces), tool coupler 3, dock 4 plus the 4-part R1 retrofit kit (5 pieces). Older versions, alternates, test coupons, the optional R2 dock head and the future tools are not counted. Full table with sizes, grams, filament, exact listings we bought and generic search links: [docs/BOM.md](docs/BOM.md) (and `docs/BOM.csv`). It has three sections: A one tool changer, B per extra tool, C optional and future.
@@ -86,19 +85,23 @@ Each part, with its exact listing where we have one, is in [docs/BOM.md](docs/BO
 - `stl/`, `step/` exported meshes of the current parts: `master_v4`, `dock_v5`, `tool_gt1`, plus `heads_*` and `tool_fr1` for the future tools.
 - `swap/` arm control and test code (capguard, jog, real_io, dockcycle, pick2, fakebus/sim_io, tests).
 - `sim/` MuJoCo contact model used by the sim twin.
-- `docs/` design notes (`DESIGN_v4.md`), runbook, `BOM.md` / `BOM.csv`, `diagrams/`, and `future_tools/` (concept tools, not the focus yet).
+- `docs/` design notes (`DESIGN_v4.md`), runbook, `BOM.md` / `BOM.csv`, `diagrams/`, and `future_tools/`.
+- `data/` raw trial logs (100-cycle run, Nov 2) with a column dictionary.
+
+**Out of scope / experimental:** the future tool heads `hi5f`, `jg2`, `stamp2` and the fin-ray tool `fr1` (`cad/heads/`, `cad/tools/`, `stl/heads_*`, `stl/tool_fr1`, `docs/future_tools/`) are unbuilt or untested concepts. None of the results above uses them.
 - `LICENSES/` license texts. `NOTICE` upstream credits.
 
-Not included: SO-ARM100 / Feetech servo meshes (get them upstream), calibration files, logs, footage, print files (gcode/3mf).
-Some swap/ scripts import modules that live outside this repo (`splat`, `grip_cap`) and `swap/capture.py` (camera capture used by capguard) is not included; they will not run unmodified. Paths and serials were scrubbed; set `TC_PYTHON`, `TC_CAPTURE_OUT` as needed.
+Not included: SO-ARM100 / Feetech servo meshes (get them upstream), calibration files, footage, print files (gcode/3mf). Trial logs are in `data/`.
+**Missing dependencies:** some `swap/` scripts import modules that are not in this repo (`splat`, `grip_cap`, and `swap/capture.py`, the camera capture used by capguard), so they will not run unmodified. The scripted P11 cycle runner that produced the Nov 2 results (`cycle.py`, `nudge.py`, `programs.py`) is not published here yet. Paths and serials were scrubbed; set `TC_PYTHON`, `TC_CAPTURE_OUT` as needed.
 
-## Licenses (split)
+## Licenses
 | What | Where | License |
 |---|---|---|
-| Hardware, CAD source, STEP/STL, docs | `cad/`, `stl/`, `step/`, `docs/`, this README | CC BY-NC-SA 4.0 |
+| Hardware: CAD source, STEP/STL, drawings | `cad/`, `stl/`, `step/`, `docs/diagrams/` | CERN-OHL-W-2.0 |
 | Code | `swap/`, `sim/` | GPL-3.0-or-later |
+| Documentation and data | `docs/` (text), `data/`, this README | CC BY 4.0 |
 
-Full texts are in `LICENSES/`. The hardware, CAD, STEP/STL and docs are for personal and non-commercial use only; selling kits or parts, or using them in a commercial product, needs written permission from Logic Frame Co. The code is GPL-3.0-or-later. No file in this repo is upstream code or geometry, so no file here is relabeled; upstream Apache-2.0 work is credited in `NOTICE` and is not redistributed.
+Full texts are in `LICENSES/`. The hardware is open source hardware under the CERN Open Hardware Licence v2, weakly reciprocal: you may study, modify, make and sell it, including commercially, as long as you share your changes to these design files under the same licence and keep the source location (this repo). No file in this repo is upstream code or geometry, so no file here is relabeled; upstream Apache-2.0 work is credited in `NOTICE` and is not redistributed.
 
 Upstream Apache-2.0 work (TheRobotStudio SO-ARM100, Hugging Face LeRobot) is credited in `NOTICE`. SO-101 is a TheRobotStudio design; this project is not affiliated. Provided as-is.
 

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Dock v5 retrofit kit (pm-eng / dock-cradle, 2026-10-29).  Dock frame: origin on the wall's arm-side face at the tool axis,
 +x away from the arm, +z up, table z=-100, foot top z=-94.  Does NOT touch build_changer_v4.py / build_gripper_tool.py.
 R1 kit (print now, tray 0 white, no cutting, no inserts):  2 stop pads (tape on the wall face) + 2 cradle columns (tape on the foot).

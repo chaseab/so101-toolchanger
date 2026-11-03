@@ -85,7 +85,7 @@ iVBORw0KGgoAAAANSUhEUgAABJ4AAAbwCAYAAAAicpvpAAEAAElEQVR4nOz9d5QcaX6eiT7hMjPSlfeF
     <text style="fill: #1d232b; font: 8.6px 'Arial', 'DejaVu Sans'; text-anchor: start" x="35.52" y="1135.98525" transform="rotate(-0 35.52 1135.98525)">jigsaw cut: one straight cut at z = -24 removes the old wall top (R2 only)</text>
    </g>
    <g id="text_18">
-    <text style="fill: #6b7480; font: 9px 'Arial', 'DejaVu Sans'; text-anchor: start" x="19.2" y="1173.584297" transform="rotate(-0 19.2 1173.584297)">Tape, thread and the R2 fasteners are drawn here; sizes nominal. Part details: docs/BOM.md. CC BY-NC-SA 4.0.</text>
+    <text style="fill: #6b7480; font: 9px 'Arial', 'DejaVu Sans'; text-anchor: start" x="19.2" y="1173.584297" transform="rotate(-0 19.2 1173.584297)">Tape, thread and the R2 fasteners are drawn here; sizes nominal. Part details: docs/BOM.md. CERN-OHL-W-2.0.</text>
    </g>
    <g id="line2d_1">
     <path d="M 330.366296 419.34903 

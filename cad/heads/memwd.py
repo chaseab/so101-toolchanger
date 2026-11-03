@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 import os, threading, time, ctypes
 from ctypes import wintypes
 class PMC(ctypes.Structure):

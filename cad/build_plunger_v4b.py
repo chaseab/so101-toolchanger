@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Plunger v4b = plunger v4 with more running clearance.  2026-10-23, agent toolchanger-build.
 
 Why: on the C1 print (10/23) one of the 3 plungers stopped halfway down its pocket in the ring; swapping showed the fault

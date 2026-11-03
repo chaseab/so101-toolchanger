@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """JG2: rack-and-pinion Jenga poker for the SO-101 v4 tool changer.  2026-10-30, pm-eng CAD worker.
 Run (Idle priority, watchdog inside): python toolchanger/heads_x3/build_jg2.py -> heads_x3/jg2/
 Nothing here is printed, bought or run on the arm.

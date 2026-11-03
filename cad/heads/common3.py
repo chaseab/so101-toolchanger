@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# SPDX-License-Identifier: CERN-OHL-W-2.0
 """Shared bits for the heads_x3 reel heads (HI5, STAMP1, SCOOP1).  2026-10-29, heads-x3 for pm-eng.
 Run with python.  Nothing here is printed, bought or run on the arm.
 
