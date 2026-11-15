@@ -4,7 +4,7 @@
 
 How to read it: "Exact (what we used)" is the listing we actually bought (Amazon /dp link). Where we do not have the exact listing it says "none found" and only the Generic search link is given. Links go through a Logic Frame Co redirect (affiliate links may be used). Price is the pack price from our order line, or `~` if unknown. Printed-part grams are approximate (CAD volume x solid PLA density). The same data is in `BOM.csv` (with `exact_url`, `generic_url`, `search_q`).
 
-The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStudio/SO-ARM100. No bearings are used. The tool body (the part with the neck that holds the magnet and four inserts) is whatever tool you build; the built example is the FR1 gripper in `stl/tool_fr1/` (section D); the earlier GT1 gripper is in `stl/tool_gt1/`.
+The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStudio/SO-ARM100. No bearings are used. The tool body (the part with the neck that holds the magnet and four inserts) is whatever tool you build; the built example is the FR1 gripper in `stl/tool_fr1/` (section D); the earlier GT1 gripper is in `stl/tool_gt1/`. The coupler parts in section A are the same on every tool; the STL links point at the FR1 copies.
 
 ## A. One tool changer (master + 1 coupler + 1 dock)
 
@@ -24,7 +24,7 @@ The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStu
 | tc-vhb-tape-disc | Double-sided tape disc D10 x 0.4 mm | 2 | stick the dock stop pads to the dock wall | none found | [Generic](https://logicframeco.com/go/tc-vhb-tape-disc-search/github) | 10 mm dia x 0.4 mm, cut from 1 in tape |
 | tc-vhb-tape-strip | Double-sided tape strip 23.6 x 14.8 x 0.4 mm | 2 | stick the dock cradle columns to the dock foot | none found | [Generic](https://logicframeco.com/go/tc-vhb-tape-strip-search/github) | 23.6 x 14.8 x 0.4 mm, cut from 1 in tape |
 | tc-ptfe-grease | PTFE grease, 0.75 oz tube | 1 | light coat on the locking surfaces | none found | [Generic](https://logicframeco.com/go/tc-ptfe-grease-search/github) | all-purpose PTFE grease |
-| tc-ca-glue | Cyanoacrylate gel glue | 1 | glue the steel dowels and the lead-in skirt | none found | [Generic](https://logicframeco.com/go/tc-ca-glue-search/github) | clear CA gel |
+| tc-ca-glue | Cyanoacrylate gel glue | 1 | only if you glue the steel dowels (they can instead press in at a print pause) and for the lead-in skirt | none found | [Generic](https://logicframeco.com/go/tc-ca-glue-search/github) | clear CA gel |
 | tc-pla-black | PLA filament 1.75 mm, black (2 x 1 kg) | 1 | most printed parts | [Exact (what we used)](https://logicframeco.com/go/tc-pla-black/github) | [Generic](https://logicframeco.com/go/tc-pla-black-search/github) | 1.75 mm PLA |
 | tc-pla-white | PLA filament 1.75 mm, white | 1 | dock retrofit kit prints | none found | [Generic](https://logicframeco.com/go/tc-pla-white-search/github) | 1.75 mm PLA |
 | tc-tpu-95a | TPU 95A filament 1.75 mm | 1 | the two small pads on the arm-side servo cage | none found | [Generic](https://logicframeco.com/go/tc-tpu-95a-search/github) | 1.75 mm TPU 95A |
@@ -43,10 +43,10 @@ The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStu
 | tc-master-master-backpad-tpu-v4 | Back pad | 1 | 1.0 | TPU | arm side: stops the servo lifting | [stl/master_v4/master_backpad_TPU_v4.stl](../stl/master_v4/master_backpad_TPU_v4.stl) |
 | tc-master-master-farpad-tpu-v4 | Far pad shim | 1 | 0.2 | TPU | arm side: shim under the strap | [stl/master_v4/master_farpad_TPU_v4.stl](../stl/master_v4/master_farpad_TPU_v4.stl) |
 | tc-master-master-plunger0-v4b | Ball plunger (3 identical; the other two STLs are the same part at the other seats) | 3 | 0.2 | PLA | arm side: carries the steel ball and spring | [stl/master_v4/master_plunger0_v4b.stl](../stl/master_v4/master_plunger0_v4b.stl) |
-| **Tool coupler** | 3 distinct, 3 pieces, ~30.6 g | | | | | |
-| tc-gt1-gt-plate | Coupling plate | 1 | 25.3 | PLA | tool coupler: the plate with the three pins that locks into the ring | [stl/tool_gt1/gt_plate.stl](../stl/tool_gt1/gt_plate.stl) |
-| tc-gt1-gt-rotor | Floating rotor | 1 | 3.8 | PLA | tool coupler: the arm blade drives this | [stl/tool_gt1/gt_rotor.stl](../stl/tool_gt1/gt_rotor.stl) |
-| tc-gt1-gt-shaft | Drive shaft | 1 | 1.5 | PLA | tool coupler: carries the rotor turn into the tool | [stl/tool_gt1/gt_shaft.stl](../stl/tool_gt1/gt_shaft.stl) |
+| **Tool coupler** (same on every tool; one set comes with the tool you build, FR1 in section D) | 3 distinct, 3 pieces, ~30.6 g | | | | | |
+| tc-coupler-plate | Coupling plate | 1 | 25.3 | PLA | tool coupler, same on every tool: the plate with the three pins that locks into the ring | [stl/tool_fr1/plate.stl](../stl/tool_fr1/plate.stl) |
+| tc-coupler-rotor | Floating rotor | 1 | 3.8 | PLA | tool coupler, same on every tool: the arm blade drives this | [stl/tool_fr1/rotor.stl](../stl/tool_fr1/rotor.stl) |
+| tc-coupler-shaft | Drive shaft | 1 | 1.5 | PLA | tool coupler, same on every tool: carries the rotor turn into the tool | [stl/tool_fr1/shaft.stl](../stl/tool_fr1/shaft.stl) |
 | **Dock** | 4 distinct, 4 pieces, ~455.8 g | | | | | |
 | tc-dock-dock-post-asbuilt | Dock post (the same part is also exported as dock_post_v4) | 1 | 326.3 | PLA | dock: the slotted wall that parks the tool | [stl/dock_v5/dock_post_asbuilt.stl](../stl/dock_v5/dock_post_asbuilt.stl) |
 | tc-dock-db-frame | Dock table frame | 1 | 86.9 | PLA | dock: base that clamps to the table | [stl/master_v4/db_frame.stl](../stl/master_v4/db_frame.stl) |
@@ -69,9 +69,9 @@ Each added tool needs its own coupler. Each extra tool also wants its own dock: 
 | tc-magnet-n52-6x3 | N52 neodymium disc magnet 6 mm x 3 mm (pack of 50) | 1 | one in the new tool's neck | [Exact (what we used)](https://logicframeco.com/go/tc-magnet-n52-6x3/github) | [Generic](https://logicframeco.com/go/tc-magnet-n52-6x3-search/github) | 6 x 3 mm, N52 |
 | tc-m3x10-csk | M3 x 10 countersunk (flat head) hex socket screw, 90 deg (pack of 50) | 4 | hold the coupling plate to the new tool's neck | [Exact (what we used)](https://logicframeco.com/go/tc-m3x10-csk/github) | [Generic](https://logicframeco.com/go/tc-m3x10-csk-search/github) | M3 x 10, 304 stainless, countersunk |
 | tc-m3-heat-insert-4.0x6.7 | M3 brass heat-set insert, 4.0 bore x 6.7 L | 4 | threaded holes in the new tool's neck | none found | [Generic](https://logicframeco.com/go/tc-m3-heat-insert-4.0x6.7-search/github) | M3 thread, 4.0 mm bore, 6.7 mm long |
-| tc-gt1-gt-plate | Coupling plate (printed, 25.3 g PLA) | 1 | tool coupler: the plate with the three pins that locks into the ring | [stl/tool_gt1/gt_plate.stl](../stl/tool_gt1/gt_plate.stl) | | |
-| tc-gt1-gt-rotor | Floating rotor (printed, 3.8 g PLA) | 1 | tool coupler: the arm blade drives this | [stl/tool_gt1/gt_rotor.stl](../stl/tool_gt1/gt_rotor.stl) | | |
-| tc-gt1-gt-shaft | Drive shaft (printed, 1.5 g PLA) | 1 | tool coupler: carries the rotor turn into the tool | [stl/tool_gt1/gt_shaft.stl](../stl/tool_gt1/gt_shaft.stl) | | |
+| tc-coupler-plate | Coupling plate (printed, 25.3 g PLA) | 1 | tool coupler, same on every tool: the plate with the three pins that locks into the ring | [stl/tool_fr1/plate.stl](../stl/tool_fr1/plate.stl) | | |
+| tc-coupler-rotor | Floating rotor (printed, 3.8 g PLA) | 1 | tool coupler, same on every tool: the arm blade drives this | [stl/tool_fr1/rotor.stl](../stl/tool_fr1/rotor.stl) | | |
+| tc-coupler-shaft | Drive shaft (printed, 1.5 g PLA) | 1 | tool coupler, same on every tool: carries the rotor turn into the tool | [stl/tool_fr1/shaft.stl](../stl/tool_fr1/shaft.stl) | | |
 
 ## C. Optional and future
 
@@ -84,16 +84,12 @@ Each added tool needs its own coupler. Each extra tool also wants its own dock: 
 
 ## D. FR1 fin-ray gripper tool (built, runs on the changer)
 
-This is the tool that is built and running. It uses the same coupler as section A (plate, rotor, shaft, three dowels, neck magnet, four inserts) with its own body, jaws and fin rays. Hardware is from `cad/tools/build_fr1.py`. Grams are CAD volume x solid density (PLA 1.24, TPU 1.21 g/cm3), not weighed. Prices are the pack prices listed above, `~` where unknown.
+This is the tool that is built and running. Its coupler (plate, rotor, shaft, three dowels, neck magnet, four countersunk screws, four inserts) is the same on every tool and is counted in section A, not repeated here. The rows below are only what is specific to FR1: body, cover, jaws, pinion, fin rays and their screws. Hardware is from `cad/tools/build_fr1.py`. Grams are CAD volume x solid density (PLA 1.24, TPU 1.21 g/cm3), not weighed. Prices are the pack prices listed above, `~` where unknown.
 
 ### Hardware
 
 | part_id | part | qty | used for | spec |
 |---|---|---|---|---|
-| tc-dowel-3x12 | Steel dowel pin, plain cylindrical 3 mm x 12 mm (pack of 50) | 3 | the three pins on the tool's coupler plate | 3 mm dia x 12 mm, 304 stainless, unthreaded |
-| tc-magnet-n52-6x3 | N52 neodymium disc magnet 6 mm x 3 mm (pack of 50) | 1 | one in the tool neck | 6 x 3 mm, N52 |
-| tc-m3x10-csk | M3 x 10 countersunk (flat head) hex socket screw, 90 deg (pack of 50) | 4 | hold the coupling plate to the tool neck | M3 x 10, 304 stainless, countersunk |
-| tc-m3-heat-insert-4.0x6.7 | M3 brass heat-set insert, 4.0 bore x 6.7 L | 4 | threaded holes in the tool neck | M3 thread, 4.0 mm bore, 6.7 mm long |
 | fr1-m3x8-button-washer | M3 x 8 button-head socket screw + M3 washer | 1 | the shaft screw (M3 x 8 + washer) | M3 x 8 ISO 7380 + M3 washer |
 | fr1-m3x8-cover | M3 x 8 button-head socket screw (self-taps) | 4 | hold the bottom cover to the body | M3 x 8 ISO 7380 |
 | fr1-m3x25-button | M3 x 25 button-head socket screw | 2 | the pivot bolt of each jaw | M3 x 25 ISO 7380 |
@@ -108,9 +104,6 @@ This is the tool that is built and running. It uses the same coupler as section 
 | tc-fr1-jaw1 | Jaw | 2 | 15.4 | PLA | tool: one STL, the second jaw is the same part rotated 180 deg | [stl/tool_fr1/jaw1.stl](../stl/tool_fr1/jaw1.stl) |
 | tc-fr1-pinion | Pinion | 1 | 2.0 | PLA | tool: drives the two jaws | [stl/tool_fr1/pinion.stl](../stl/tool_fr1/pinion.stl) |
 | tc-fr1-finray1 | TPU fin ray | 2 | 10.8 | TPU | tool: soft fin-ray finger on each jaw; one STL, the second is the same part rotated 180 deg | [stl/tool_fr1/finray1.stl](../stl/tool_fr1/finray1.stl) |
-| tc-fr1-plate | Coupling plate | 1 | 25.3 | PLA | tool coupler: the plate with the three pins that locks into the ring | [stl/tool_fr1/plate.stl](../stl/tool_fr1/plate.stl) |
-| tc-fr1-rotor | Floating rotor | 1 | 3.8 | PLA | tool coupler: the arm blade drives this | [stl/tool_fr1/rotor.stl](../stl/tool_fr1/rotor.stl) |
-| tc-fr1-shaft | Drive shaft | 1 | 1.5 | PLA | tool coupler: carries the rotor turn into the tool | [stl/tool_fr1/shaft.stl](../stl/tool_fr1/shaft.stl) |
-| **Total** | 8 distinct, 10 pieces, ~144 g | | | | | |
+| **Total** | 5 distinct, 7 pieces, ~113 g | | | | | |
 
-The other tool designs (JG2, HI5F, STAMP2) are concept designs and are not part of the changer BOM. The GT1 gripper is the earlier example tool. See [docs/future_tools](future_tools/README.md) and the `stl/heads_*` and `stl/tool_*` folders.
+The other tool designs (JG2, HI5F, STAMP2) are concept designs and are not part of the changer BOM. The GT1 gripper is an earlier tool and is not listed. See [docs/future_tools](future_tools/README.md) and the `stl/heads_*` and `stl/tool_*` folders.

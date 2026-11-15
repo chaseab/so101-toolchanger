@@ -67,7 +67,7 @@ Each part, with its exact listing where we have one, is in [docs/BOM.md](docs/BO
 
 ## Build
 - Print the master and dock parts in section A of the BOM from `stl/` (`master_v4`, `dock_v5`) and the FR1 tool parts in section D from `stl/tool_fr1`; the BOM lists material and grams per part. `stl/tool_gt1` is the earlier gripper, kept for reference. STEP files are in `step/`.
-- Assemble with the hardware in the BOM: dowels glued into the ring's V grooves and the tool plate, ball plungers with springs, heat-set inserts, M3 screws, and one N52 6 x 3 magnet in the tool neck (the dock-floor pocket is optional and empty in the tested build).
+- Assemble with the hardware in the BOM: dowels (they press in at a print pause or are glued) in the ring's V grooves and the tool plate, ball plungers with springs, heat-set inserts, M3 screws, and one N52 6 x 3 magnet in the tool neck (the dock-floor pocket is optional and empty in the tested build).
 - The dock retrofit kit (R1) prints with no cutting; the R2 head needs one jigsaw cut. See `docs/diagrams/dock_v5_retrofit.png`.
 - Design notes, lock-torque numbers and test results: `docs/DESIGN_v4.md`; bench procedure: `docs/RUNBOOK.html`.
 
