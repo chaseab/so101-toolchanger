@@ -27,7 +27,7 @@ Exploded view of the master (arm side), the tool coupler and the dock, with ever
 ([SVG version](docs/diagrams/changer_exploded.svg))
 
 ## How the twist-lock works
-The master on the wrist locks onto the tool coupler with three pins in three steel V-seats (a kinematic coupling). The arm approaches with the wrist rolled 45 deg, the pins pass through three windows, then a 45 deg wrist roll drives each pin up a ramp (spring plungers with steel balls push the tool plate back), over a crest and into the V. A magnet in the tool neck helps hold the parked tool in the dock. The dock has a matching pocket for an optional second magnet; the current build runs without it. Release is the same motion in reverse.
+The master on the wrist locks onto the tool coupler with three pins in three steel V-seats (a kinematic coupling). The arm approaches with the wrist rolled 45 deg, the pins pass through three windows, then a 45 deg wrist roll drives each pin up a ramp (spring plungers with steel balls push the tool plate back), over a crest and into the V. There is one small magnet in the tool neck; the dock has a matching pocket for an optional second one, left empty in the current build. Release is the same motion in reverse.
 
 ![Twist-lock sequence: approach, engage, twist and lock, release](docs/diagrams/twist_lock_sequence.png)
 
@@ -66,7 +66,7 @@ Bought parts for one build:
 Each part, with its exact listing where we have one, is in [docs/BOM.md](docs/BOM.md).
 
 ## Build
-- Print the 20 parts listed in section A of the BOM from `stl/` (`master_v4`, `tool_gt1`, `dock_v5`); the BOM lists material and grams per part. STEP files are in `step/`.
+- Print the master and dock parts in section A of the BOM from `stl/` (`master_v4`, `dock_v5`) and the FR1 tool parts in section D from `stl/tool_fr1`; the BOM lists material and grams per part. `stl/tool_gt1` is the earlier gripper, kept for reference. STEP files are in `step/`.
 - Assemble with the hardware in the BOM: dowels glued into the ring's V grooves and the tool plate, ball plungers with springs, heat-set inserts, M3 screws, and one N52 6 x 3 magnet in the tool neck (the dock-floor pocket is optional and empty in the tested build).
 - The dock retrofit kit (R1) prints with no cutting; the R2 head needs one jigsaw cut. See `docs/diagrams/dock_v5_retrofit.png`.
 - Design notes, lock-torque numbers and test results: `docs/DESIGN_v4.md`; bench procedure: `docs/RUNBOOK.html`.
@@ -83,7 +83,7 @@ The runner that produced the Nov 2 100-cycle results is in `swap/` (controller `
 
 ## Folder map
 - `cad/` CAD-as-code (build123d) for the master, docks and gripper tool, plus `cad/heads/` and `cad/tools/` for the future tools. Interference and lock-path checks are here too.
-- `stl/`, `step/` exported meshes of the current parts: `master_v4`, `dock_v5`, `tool_gt1`, plus `heads_*` and `tool_fr1` for the future tools.
+- `stl/`, `step/` exported meshes of the current parts: `master_v4`, `dock_v5`, `tool_fr1` (the built tool), `tool_gt1` (the earlier gripper), plus `heads_*` for the future tools.
 - `swap/` arm control and test code: the P11 cycle runner (`nudge_web.py`, `cycle.py`, `programs.py`, see `swap/RUNNER.md`), plus earlier tools (capguard, jog, real_io, dockcycle, pick2, fakebus/sim_io, tests).
 - `sim/` MuJoCo contact model used by the sim twin.
 - `docs/` design notes (`DESIGN_v4.md`), runbook, `BOM.md` / `BOM.csv`, `diagrams/`, and `future_tools/`.

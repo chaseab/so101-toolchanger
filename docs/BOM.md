@@ -1,10 +1,10 @@
 # Bill of materials
 
-**One tool changer = 20 printed parts (23 pieces, about 666 g of filament: 665 g PLA + 1.2 g TPU) plus the hardware below.** That is the arm-side master + one tool coupler + one dock (v5, with the R1 retrofit kit). Older versions, alternates, test coupons, the optional R2 head and the future tools are not counted.
+**One tool changer = 20 printed parts (23 pieces, about 666 g of filament: 665 g PLA + 1.2 g TPU) plus the hardware below.** That is the arm-side master + one tool coupler + one dock (v5, with the R1 retrofit kit). Older versions, alternates, test coupons, the optional R2 head, the FR1 tool (section D) and the future tools are not counted.
 
 How to read it: "Exact (what we used)" is the listing we actually bought (Amazon /dp link). Where we do not have the exact listing it says "none found" and only the Generic search link is given. Links go through a Logic Frame Co redirect (affiliate links may be used). Price is the pack price from our order line, or `~` if unknown. Printed-part grams are approximate (CAD volume x solid PLA density). The same data is in `BOM.csv` (with `exact_url`, `generic_url`, `search_q`).
 
-The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStudio/SO-ARM100. No bearings are used. The tool body (the part with the neck that holds the magnet and four inserts) is whatever tool you build; the example is the GT1 gripper in `stl/tool_gt1/`.
+The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStudio/SO-ARM100. No bearings are used. The tool body (the part with the neck that holds the magnet and four inserts) is whatever tool you build; the built example is the FR1 gripper in `stl/tool_fr1/` (section D); the earlier GT1 gripper is in `stl/tool_gt1/`.
 
 ## A. One tool changer (master + 1 coupler + 1 dock)
 
@@ -14,7 +14,7 @@ The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStu
 |---|---|---|---|---|---|---|
 | tc-so101-arm | SO-101 arm (follower), TheRobotStudio design | 1 | the arm the changer mounts on | [upstream repo](https://github.com/TheRobotStudio/SO-ARM100) |  | SO-ARM100 / SO-101 repo: printed parts, STS3215 servos, controller board |
 | tc-dowel-3x12 | Steel dowel pin, plain cylindrical 3 mm x 12 mm (pack of 50) | 9 | steel V-seats on the arm-side ring (6) and the pins on the tool coupler plate (3) | [Exact (what we used)](https://logicframeco.com/go/tc-dowel-3x12/github) | [Generic](https://logicframeco.com/go/tc-dowel-3x12-search/github) | 3 mm dia x 12 mm, 304 stainless, unthreaded |
-| tc-magnet-n52-6x3 | N52 neodymium disc magnet 6 mm x 3 mm (pack of 50) | 2 | one in the tool neck and one in the dock floor, so a parked tool is not dragged out | [Exact (what we used)](https://logicframeco.com/go/tc-magnet-n52-6x3/github) | [Generic](https://logicframeco.com/go/tc-magnet-n52-6x3-search/github) | 6 x 3 mm, N52 |
+| tc-magnet-n52-6x3 | N52 neodymium disc magnet 6 mm x 3 mm (pack of 50) | 1 | one in the tool neck (the dock has an optional pocket for a second one, empty in the tested build) | [Exact (what we used)](https://logicframeco.com/go/tc-magnet-n52-6x3/github) | [Generic](https://logicframeco.com/go/tc-magnet-n52-6x3-search/github) | 6 x 3 mm, N52 |
 | tc-ball-5-32 | Chrome steel ball 5/32 in (3.97 mm), G25 (pack of 100) | 3 | tips of the three spring plungers on the arm side | [Exact (what we used)](https://logicframeco.com/go/tc-ball-5-32/github) | [Generic](https://logicframeco.com/go/tc-ball-5-32-search/github) | 5/32 in, G25 chrome steel, non-magnetic |
 | tc-spring-5x0.7x10 | Compression spring 5 mm OD x 0.7 mm wire x 10 mm free (pack of 10) | 3 | push the three plungers (and the tool plate back) in the twist-lock | [Exact (what we used)](https://logicframeco.com/go/tc-spring-5x0.7x10/github) | [Generic](https://logicframeco.com/go/tc-spring-5x0.7x10-search/github) | 5 mm OD, 0.7 mm wire, 10 mm free, 304 stainless; about 10 N at 8.05 mm |
 | tc-m3x10-csk | M3 x 10 countersunk (flat head) hex socket screw, 90 deg (pack of 50) | 8 | hold the coupling plate to the tool neck (4) and the clamp bars to the dock frame (4) | [Exact (what we used)](https://logicframeco.com/go/tc-m3x10-csk/github) | [Generic](https://logicframeco.com/go/tc-m3x10-csk-search/github) | M3 x 10, 304 stainless, countersunk |
@@ -81,4 +81,36 @@ Each added tool needs its own coupler. Each extra tool also wants its own dock: 
 | tc-m3x10-button | M3 x 10 button-head socket screw | 4 | attach the optional R2 dock head (4) | none found | [Generic](https://logicframeco.com/go/tc-m3x10-button-search/github) | M3 x 10 ISO 7380 |
 | tc-dock-v5-head-r2 | Optional R2 dock head (needs one jigsaw cut) (printed, 79.3 g PLA) | 1 | optional dock head that replaces the old wall top | [stl/dock_v5/head_R2.stl](../stl/dock_v5/head_R2.stl) | | |
 
-The other tool designs (JG2, HI5F, STAMP2, FR1, and the GT1 gripper jaws and cover) are concept or example tools and are not part of the changer BOM. See [docs/future_tools](future_tools/README.md) and the `stl/heads_*` and `stl/tool_*` folders.
+
+## D. FR1 fin-ray gripper tool (built, runs on the changer)
+
+This is the tool that is built and running. It uses the same coupler as section A (plate, rotor, shaft, three dowels, neck magnet, four inserts) with its own body, jaws and fin rays. Hardware is from `cad/tools/build_fr1.py`. Grams are CAD volume x solid density (PLA 1.24, TPU 1.21 g/cm3), not weighed. Prices are the pack prices listed above, `~` where unknown.
+
+### Hardware
+
+| part_id | part | qty | used for | spec |
+|---|---|---|---|---|
+| tc-dowel-3x12 | Steel dowel pin, plain cylindrical 3 mm x 12 mm (pack of 50) | 3 | the three pins on the tool's coupler plate | 3 mm dia x 12 mm, 304 stainless, unthreaded |
+| tc-magnet-n52-6x3 | N52 neodymium disc magnet 6 mm x 3 mm (pack of 50) | 1 | one in the tool neck | 6 x 3 mm, N52 |
+| tc-m3x10-csk | M3 x 10 countersunk (flat head) hex socket screw, 90 deg (pack of 50) | 4 | hold the coupling plate to the tool neck | M3 x 10, 304 stainless, countersunk |
+| tc-m3-heat-insert-4.0x6.7 | M3 brass heat-set insert, 4.0 bore x 6.7 L | 4 | threaded holes in the tool neck | M3 thread, 4.0 mm bore, 6.7 mm long |
+| fr1-m3x8-button-washer | M3 x 8 button-head socket screw + M3 washer | 1 | the shaft screw (M3 x 8 + washer) | M3 x 8 ISO 7380 + M3 washer |
+| fr1-m3x8-cover | M3 x 8 button-head socket screw (self-taps) | 4 | hold the bottom cover to the body | M3 x 8 ISO 7380 |
+| fr1-m3x25-button | M3 x 25 button-head socket screw | 2 | the pivot bolt of each jaw | M3 x 25 ISO 7380 |
+| fr1-m3-nut | M3 nut | 2 | nut for each jaw bolt | M3 hex nut |
+
+### Printed parts
+
+| part_id | part | qty | grams each | filament | used for | STL |
+|---|---|---|---|---|---|---|
+| tc-fr1-body | Tool body (neck, slide, pinion pocket) | 1 | 49.2 | PLA | tool body: holds the neck magnet, the four inserts and the gripper mechanism | [stl/tool_fr1/body.stl](../stl/tool_fr1/body.stl) |
+| tc-fr1-cover | Bottom cover | 1 | 9.8 | PLA | tool: closes the underside of the body | [stl/tool_fr1/cover.stl](../stl/tool_fr1/cover.stl) |
+| tc-fr1-jaw1 | Jaw | 2 | 15.4 | PLA | tool: one STL, the second jaw is the same part rotated 180 deg | [stl/tool_fr1/jaw1.stl](../stl/tool_fr1/jaw1.stl) |
+| tc-fr1-pinion | Pinion | 1 | 2.0 | PLA | tool: drives the two jaws | [stl/tool_fr1/pinion.stl](../stl/tool_fr1/pinion.stl) |
+| tc-fr1-finray1 | TPU fin ray | 2 | 10.8 | TPU | tool: soft fin-ray finger on each jaw; one STL, the second is the same part rotated 180 deg | [stl/tool_fr1/finray1.stl](../stl/tool_fr1/finray1.stl) |
+| tc-fr1-plate | Coupling plate | 1 | 25.3 | PLA | tool coupler: the plate with the three pins that locks into the ring | [stl/tool_fr1/plate.stl](../stl/tool_fr1/plate.stl) |
+| tc-fr1-rotor | Floating rotor | 1 | 3.8 | PLA | tool coupler: the arm blade drives this | [stl/tool_fr1/rotor.stl](../stl/tool_fr1/rotor.stl) |
+| tc-fr1-shaft | Drive shaft | 1 | 1.5 | PLA | tool coupler: carries the rotor turn into the tool | [stl/tool_fr1/shaft.stl](../stl/tool_fr1/shaft.stl) |
+| **Total** | 8 distinct, 10 pieces, ~144 g | | | | | |
+
+The other tool designs (JG2, HI5F, STAMP2) are concept designs and are not part of the changer BOM. The GT1 gripper is the earlier example tool. See [docs/future_tools](future_tools/README.md) and the `stl/heads_*` and `stl/tool_*` folders.

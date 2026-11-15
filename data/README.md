@@ -13,7 +13,7 @@ Raw logs from the scripted 100-cycle pick + put-back run (program P11) on one SO
 | c1102_215723 (resumed) | 13 | 13 | 0 |
 | Total | 100/100 | 99/100 | 1 |
 
-All 100 picks locked first try and passed the wiggle test. The one abort was a false servo temperature reading: the elbow read 56 C, then 150 C, while its real temperature was about 47 C. The watchdog stopped the arm, the temperature filter was fixed, and the run was resumed. It was not a docking failure. The median cycle was 29.6 s (range 26.4-34.4 s).
+All 100 picks locked first try and passed the wiggle test. The one abort was a false servo temperature reading: the elbow read 56 C, then 150 C, while its real temperature was about 47 C. The watchdog stopped the arm, the temperature filter was fixed, and the run was resumed. It was not a docking failure. The median cycle was 29.6 s (range 27.1-34.4 s over the 100 main-run cycles).
 
 Short runs before the main run (not counted above): `c1102_203210` stopped by the operator before recording started (`user_stop`, after a good lock); `c1102_203605` aborted because the dock camera was a virtual-camera placeholder (`dockcheck_stale`, pick itself good); `c1102_204628` did 2 picks and 1 put-back, then aborted on a single false temperature reading (`temp_spike`, real 43 C).
 
