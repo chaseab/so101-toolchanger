@@ -10,7 +10,7 @@ On Nov 2 the arm ran 100 scripted pick and put-back cycles with one tool: all 10
 
 If this is useful to you, a star helps other SO-101 builders find it.
 
-Links: [BOM](docs/BOM.md) · [STL files](stl/) · [STEP files](step/) · [Design notes](docs/DESIGN_v4.md) · [Cycle code](swap/RUNNER.md) · [Raw trial data](data/) · [Licenses](#licenses) (CERN-OHL-W-2.0 hardware, GPL-3.0-or-later code, CC BY 4.0 docs) · [Project page](https://logicframeco.com/tool-changer)
+Links: [BOM](docs/BOM.md) · [STL files](stl/) · [STEP files](step/) · [Build notes](docs/BUILD.md) · [Cycle code](swap/RUNNER.md) · [Raw trial data](data/) · [Licenses](#licenses) (CERN-OHL-W-2.0 hardware, GPL-3.0-or-later code, CC BY 4.0 docs) · [Project page](https://logicframeco.com/tool-changer)
 
 ## Status
 - **100-cycle run (Nov 2):** 100/100 picks locked on the first try, each passing a wiggle test, and 99/100 put-backs, all automatic. The other put-back was stopped by a false servo temperature reading. Median cycle 29.6 s. Raw logs and a column dictionary are in [`data/`](data/).

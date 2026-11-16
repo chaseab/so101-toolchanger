@@ -48,7 +48,7 @@ The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStu
 | tc-coupler-rotor | Floating rotor | 1 | 3.8 | PLA | tool coupler, same on every tool: the arm blade drives this | [stl/tool_fr1/rotor.stl](../stl/tool_fr1/rotor.stl) |
 | tc-coupler-shaft | Drive shaft | 1 | 1.5 | PLA | tool coupler, same on every tool: carries the rotor turn into the tool | [stl/tool_fr1/shaft.stl](../stl/tool_fr1/shaft.stl) |
 | **Dock** | 4 distinct, 4 pieces, ~455.8 g | | | | | |
-| tc-dock-dock-post-asbuilt | Dock post (the same part is also exported as dock_post_v4) | 1 | 326.3 | PLA | dock: the slotted wall that parks the tool | [stl/dock_v5/dock_post_asbuilt.stl](../stl/dock_v5/dock_post_asbuilt.stl) |
+| tc-dock-dock-post-asbuilt | Dock post (as built; master_v4/dock_post_v4 is a different post with a sealed magnet pocket) | 1 | 326.3 | PLA | dock: the slotted wall that parks the tool | [stl/dock_v5/dock_post_asbuilt.stl](../stl/dock_v5/dock_post_asbuilt.stl) |
 | tc-dock-db-frame | Dock table frame | 1 | 86.9 | PLA | dock: base that clamps to the table | [stl/master_v4/db_frame.stl](../stl/master_v4/db_frame.stl) |
 | tc-dock-db-bar-front | Front clamp bar | 1 | 25.1 | PLA | dock: clamps the post, arm side | [stl/master_v4/db_bar_front.stl](../stl/master_v4/db_bar_front.stl) |
 | tc-dock-db-bar-back | Back clamp bar | 1 | 17.5 | PLA | dock: clamps the post, back side | [stl/master_v4/db_bar_back.stl](../stl/master_v4/db_bar_back.stl) |
@@ -92,8 +92,8 @@ This is the tool that is built and running. Its coupler (plate, rotor, shaft, th
 |---|---|---|---|---|
 | fr1-m3x8-button-washer | M3 x 8 button-head socket screw + M3 washer | 1 | the shaft screw (M3 x 8 + washer) | M3 x 8 ISO 7380 + M3 washer |
 | fr1-m3x8-cover | M3 x 8 button-head socket screw (self-taps) | 4 | hold the bottom cover to the body | M3 x 8 ISO 7380 |
-| fr1-m3x25-button | M3 x 25 button-head socket screw | 2 | the pivot bolt of each jaw | M3 x 25 ISO 7380 |
-| fr1-m3-nut | M3 nut | 2 | nut for each jaw bolt | M3 hex nut |
+| fr1-m3x25-button | M3 x 25 button-head socket screw | 2 | clamps each fin ray's root in its jaw shoe (through the TPU, into the M3 nut), snug only | M3 x 25 ISO 7380 |
+| fr1-m3-nut | M3 nut | 2 | nut in the hex trap of each jaw shoe | M3 hex nut |
 
 ### Printed parts
 

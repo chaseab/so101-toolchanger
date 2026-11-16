@@ -27,7 +27,7 @@ A,tc-master-master-plunger0-v4b,Ball plunger (3 identical; the other two STLs ar
 A,tc-coupler-plate,Coupling plate,1,"printed, ~25.3 g PLA each",tool coupler, same on every tool: the plate with the three pins that locks into the ring,printed,,stl/tool_fr1/plate.stl,,,,25.3,PLA,~
 A,tc-coupler-rotor,Floating rotor,1,"printed, ~3.8 g PLA each",tool coupler, same on every tool: the arm blade drives this,printed,,stl/tool_fr1/rotor.stl,,,,3.8,PLA,~
 A,tc-coupler-shaft,Drive shaft,1,"printed, ~1.5 g PLA each",tool coupler, same on every tool: carries the rotor turn into the tool,printed,,stl/tool_fr1/shaft.stl,,,,1.5,PLA,~
-A,tc-dock-dock-post-asbuilt,Dock post (the same part is also exported as dock_post_v4),1,"printed, ~326.3 g PLA each",dock: the slotted wall that parks the tool,printed,,stl/dock_v5/dock_post_asbuilt.stl,,,,326.3,PLA,~
+A,tc-dock-dock-post-asbuilt,Dock post (as built; master_v4/dock_post_v4 is a different post with a sealed magnet pocket),1,"printed, ~326.3 g PLA each",dock: the slotted wall that parks the tool,printed,,stl/dock_v5/dock_post_asbuilt.stl,,,,326.3,PLA,~
 A,tc-dock-db-frame,Dock table frame,1,"printed, ~86.9 g PLA each",dock: base that clamps to the table,printed,,stl/master_v4/db_frame.stl,,,,86.9,PLA,~
 A,tc-dock-db-bar-front,Front clamp bar,1,"printed, ~25.1 g PLA each","dock: clamps the post, arm side",printed,,stl/master_v4/db_bar_front.stl,,,,25.1,PLA,~
 A,tc-dock-db-bar-back,Back clamp bar,1,"printed, ~17.5 g PLA each","dock: clamps the post, back side",printed,,stl/master_v4/db_bar_back.stl,,,,17.5,PLA,~
@@ -47,8 +47,8 @@ C,tc-m3x10-button,M3 x 10 button-head socket screw,4,M3 x 10 ISO 7380,attach the
 C,tc-dock-v5-head-r2,Optional R2 dock head (needs one jigsaw cut),1,"printed, ~79.3 g PLA each",optional dock head that replaces the old wall top,printed,,stl/dock_v5/head_R2.stl,,,,79.3,PLA,~
 D,fr1-m3x8-button-washer,M3 x 8 button-head socket screw + M3 washer,1,M3 x 8 ISO 7380 + M3 washer,the shaft screw (M3 x 8 + washer),generic,Amazon (Fgruh M2-M5 kit),https://logicframeco.com/go/tc-m3-button-master/github,none,https://www.amazon.com/s?k=M3+button+head+socket+screws+assortment+kit,M3 button head socket screws assortment kit,,,~
 D,fr1-m3x8-cover,M3 x 8 button-head socket screw (self-taps),4,M3 x 8 ISO 7380,hold the bottom cover to the body,generic,Amazon (Fgruh M2-M5 kit),https://logicframeco.com/go/tc-m3-button-master/github,none,https://www.amazon.com/s?k=M3+button+head+socket+screws+assortment+kit,M3 button head socket screws assortment kit,,,~
-D,fr1-m3x25-button,M3 x 25 button-head socket screw,2,M3 x 25 ISO 7380,the pivot bolt of each jaw,generic,Amazon,,none,https://www.amazon.com/s?k=M3+x+25+button+head+socket+screws,M3 x 25 button head socket screws,,,~
-D,fr1-m3-nut,M3 nut,2,M3 hex nut,"nut for each jaw bolt",generic,Amazon,,none,https://www.amazon.com/s?k=M3+hex+nuts,M3 hex nuts,,,~
+D,fr1-m3x25-button,M3 x 25 button-head socket screw,2,M3 x 25 ISO 7380,clamps each fin ray's root in its jaw shoe (through the TPU, into the M3 nut), snug only,generic,Amazon,,none,https://www.amazon.com/s?k=M3+x+25+button+head+socket+screws,M3 x 25 button head socket screws,,,~
+D,fr1-m3-nut,M3 nut,2,M3 hex nut,nut in the hex trap of each jaw shoe,generic,Amazon,,none,https://www.amazon.com/s?k=M3+hex+nuts,M3 hex nuts,,,~
 D,tc-fr1-body,"Tool body (neck, slide, pinion pocket)",1,"printed, ~49.2 g PLA each","tool body: holds the neck magnet, the four inserts and the gripper mechanism",printed,,stl/tool_fr1/body.stl,,,,49.2,PLA,~
 D,tc-fr1-cover,Bottom cover,1,"printed, ~9.8 g PLA each",tool: closes the underside of the body,printed,,stl/tool_fr1/cover.stl,,,,9.8,PLA,~
 D,tc-fr1-jaw1,Jaw,2,"printed, ~15.4 g PLA each","tool: one STL, the second jaw is the same part rotated 180 deg",printed,,stl/tool_fr1/jaw1.stl,,,,15.4,PLA,~
