@@ -1,14 +1,16 @@
 # SO-101 tool changer
 
-Open source hardware: CERN-OHL-W-2.0 (hardware), GPL-3.0-or-later (code), CC BY 4.0 (docs and data).
+A passive, 3D printed tool changer for the SO-101 robot arm: a master on the wrist, a coupler on each tool and a dock on the bench, held together by a twist-lock with a few dowels, balls, springs and one magnet. The control code drives the arm through LeRobot.
 
-A tool changer for the SO-101 robot arm: a master on the wrist, a coupler on each tool, and docks on the bench. Parts are 3D printed with a few dowels, magnets, balls and springs. The control code drives the arm through LeRobot.
+![Scripted pick, wiggle check and put-back at the dock, 6x speed](docs/media/auto_dock_cycle_6x.gif)
 
-![Automatic pick and put-back at the dock, 6x speed](docs/media/auto_dock_cycle_6x.gif)
+*Scripted pick, wiggle check and put-back at the dock, 6x speed (Nov 5, scene camera). Pick + put-back take 14.7 s of real time; the clip also includes the wiggle check.*
 
-*Automatic pick, wiggle check and put-back at the dock, 6x speed (Nov 5, scene camera). Pick + put-back take 14.7 s of real time; the clip also includes the wiggle check.*
+On Nov 2 the arm ran 100 scripted pick and put-back cycles with one tool: all 100 picks locked on the first try (each checked with a wiggle test), 99 of 100 put-backs were clean, and the first 86 cycles ran in a row before a false servo temperature reading stopped one put-back.
 
-Project page: [logicframeco.com/tool-changer](https://logicframeco.com/tool-changer)
+If this is useful to you, a star helps other SO-101 builders find it.
+
+Links: [BOM](docs/BOM.md) · [STL files](stl/) · [STEP files](step/) · [Build notes](docs/BUILD.md) · [Cycle code](swap/RUNNER.md) · [Raw trial data](data/) · [Licenses](#licenses) (CERN-OHL-W-2.0 hardware, GPL-3.0-or-later code, CC BY 4.0 docs) · [Project page](https://logicframeco.com/tool-changer)
 
 ## Status
 - **100-cycle run (Nov 2):** 100/100 picks locked on the first try, each passing a wiggle test, and 99/100 put-backs, all automatic. The other put-back was stopped by a false servo temperature reading. Median cycle 29.6 s. Raw logs and a column dictionary are in [`data/`](data/).
