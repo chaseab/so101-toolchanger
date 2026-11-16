@@ -7,7 +7,7 @@ How to print and put together one tool changer: the master on the arm, one tool 
 ## 1. What you need
 
 - **Printed parts:** BOM section A (master, tool coupler, dock, R1 dock kit) and section D (FR1 tool). About 666 g of PLA for section A plus ~113 g for FR1, and a few grams of TPU 95A.
-- **Bought parts:** 9 steel dowels 3 x 12, 3 steel balls 5/32 in, 3 springs 5 x 0.7 x 10, 15 M3 heat-set inserts (4.0 bore x 6.7), 1 N52 magnet 6 x 3, M3 screws (table below), double-sided tape, PTFE grease, CA gel.
+- **Bought parts:** 9 steel dowels 3 x 12, 3 steel balls 5/32 in, 3 springs 5 x 0.7 x 10, 15 M3 heat-set inserts (4.0 bore x 6.7), 1 N52 magnet 6 x 3, M3 screws (table below), 1-2 C-clamps (to fix the dock frame to the table edge), double-sided tape, PTFE grease, CA gel.
 - **Tools:** 2 mm and 2.5 mm hex keys, a soldering iron for the inserts (a printed stand keeps the iron straight), flush cutters, a printer that also prints TPU.
 - **An SO-101 follower arm.** The master replaces the stock gripper body; the gripper servo moves into the master's cage.
 
@@ -45,7 +45,7 @@ The STLs are saved in the assembled position, not lying on the bed. Orient them 
 | `stl/tool_fr1/pinion.stl` | 1 | as saved | |
 | `stl/tool_fr1/jaw1.stl` | 2 | flip (rack face down) | the second jaw is the same file |
 | `stl/tool_fr1/finray1.stl` | 2 | lying on its side (90° about X) | TPU 95A, no brim |
-| `stl/dock_v5/dock_post_asbuilt.stl` | 1 | as saved (foot down) | 140 mm tall: use an outer brim. (to confirm: `stl/master_v4/dock_post_v4.stl` is a later version with a sealed magnet pocket and a print pause; which post was on the dock for the Nov 2 run is still to confirm) |
+| `stl/dock_v5/dock_post_asbuilt.stl` | 1 | as saved (foot down) | 140 mm tall: use an outer brim. This is the post that ran the Nov 2 test. (`stl/master_v4/dock_post_v4.stl` is a later design with a sealed magnet pocket and a print pause; it hasn't been printed.) |
 | `stl/master_v4/db_frame.stl` | 1 | as saved | |
 | `stl/master_v4/db_bar_front.stl`, `db_bar_back.stl` | 1 each | flip | |
 | `stl/dock_v5/cradle_col_L.stl`, `cradle_col_R.stl` | 1 each | as saved | R1 kit |
@@ -68,7 +68,7 @@ All 15 are M3, 4.0 mm bore x 6.7 mm long. Press each one in square with the sold
 
 ## 4. Fasteners
 
-Every screw is M3 (the dock frame can also go down with 4 wood screws instead of tape; see step 7.3).
+Every screw is M3. The dock frame is C-clamped to the table edge, not screwed (see step 7.3).
 
 | Screw | Qty | Where | Key |
 |---|---|---|---|
@@ -119,7 +119,7 @@ Each extra tool needs one more coupler: plate, rotor, shaft, 3 dowels, 4 inserts
 
 1. 4 inserts (#41) into the dock frame (#40). Set the dock post's (#39) foot into the frame (it sits on the table, not on the frame) and clamp it with the front and back bars (#42, #43), 2x M3 x 10 countersunk (#44) each.
 2. **Place it.** The seated coupling face should be **310 mm from the arm's pan axis**. Lay the T-gauge flush on the frame's front face with its V nose in the front V-notch; its stem points at the pan axis. A thread through the gauge's two holes gives the sight line to the arm's base.
-3. Fix the frame to the table: double-sided (VHB or carpet) tape, or 4 wood screws (M4 or No. 6) through the countersunk corner holes (BOM row `tc-dock-table-fix`).
+3. Fix the frame to the table: C-clamp it to the table edge (as used for the Nov 2 run; 1-2 clamps, count to confirm). Optional alternatives: double-sided (VHB or carpet) tape, or 4 wood screws (M4 or No. 6, not M3) through the countersunk corner holes (BOM row `tc-dock-table-fix`).
 4. **R1 kit.** Stick the 2 stop pads (#45) to the dock wall with the tape discs (#46), and the 2 cradle columns (#47) to the dock foot with the tape strips (#48).
 5. The dock post has a pocket for an optional second magnet in the floor; the tested build leaves it empty.
 
