@@ -55,6 +55,12 @@ def head(c=1.0, land=8.0, chamf=4.0):
     wall += Pos(12 + 0.75, 0, -28) * Box(1.5, 2 * hy, 8)
     for s in (-1, 1):
         wall += Pos(-1.5, s * 49, -33) * Box(3, 18, 18)
+    # joints (11/16): skin and flanges only touched the wall along the line z = -24 (4 loose solids). 3 mm bands above the cut
+    # reach 1 mm into the wall, outside the slot relief (|y| > hw + 1.5), so the head is one solid.
+    y0 = hw + 1.5
+    for s in (-1, 1):
+        wall += Pos(12.25, s * (y0 + hy) / 2, -22.5) * Box(2.5, hy - y0, 3)      # back skin  x 11..13.5, z -24..-21
+        wall += Pos(-1.0, s * 49, -22.5) * Box(4, 18, 3)                       # front flange x -3..1, z -24..-21
     return wall
 # ---------- (a) radial T-gauge: crossbar flush on DB1's front face (x=-35, y +-80), V nose in the front V-notch, stem points at the pan axis
 def t_gauge():
