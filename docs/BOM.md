@@ -23,6 +23,8 @@ The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStu
 | tc-m3x40-socket | M3 x 40 socket head cap screw | 2 | hold the servo cage up into the hub (2) | none found | [Generic](https://logicframeco.com/go/tc-m3x40-socket-search/github) | M3 x 40 hex socket |
 | tc-vhb-tape-disc | Double-sided tape disc D10 x 0.4 mm | 2 | stick the dock stop pads to the dock wall | none found | [Generic](https://logicframeco.com/go/tc-vhb-tape-disc-search/github) | 10 mm dia x 0.4 mm, cut from 1 in tape |
 | tc-vhb-tape-strip | Double-sided tape strip 23.6 x 14.8 x 0.4 mm | 2 | stick the dock cradle columns to the dock foot | none found | [Generic](https://logicframeco.com/go/tc-vhb-tape-strip-search/github) | 23.6 x 14.8 x 0.4 mm, cut from 1 in tape |
+| tc-dock-table-fix | Dock frame to table: double-sided tape (VHB or carpet tape), or 4 wood screws M4 or No. 6 | 1 | fix the dock table frame to the table (the bench runbook tapes it down; to confirm which the tested dock used) | to confirm | [Generic](https://www.amazon.com/s?k=VHB+double+sided+mounting+tape) | tape under the frame, or 4x M4 or No. 6 countersunk wood screws through the corner holes |
+| tc-thread | Sewing thread or string, about 0.6 m | 1 | T-gauge sight line to the arm pan axis (one-time dock placement) | any |  | any thread |
 | tc-ptfe-grease | PTFE grease, 0.75 oz tube | 1 | light coat on the locking surfaces | none found | [Generic](https://logicframeco.com/go/tc-ptfe-grease-search/github) | all-purpose PTFE grease |
 | tc-ca-glue | Cyanoacrylate gel glue | 1 | only if you glue the steel dowels (they can instead press in at a print pause) and for the lead-in skirt | none found | [Generic](https://logicframeco.com/go/tc-ca-glue-search/github) | clear CA gel |
 | tc-pla-black | PLA filament 1.75 mm, black (2 x 1 kg) | 1 | most printed parts | [Exact (what we used)](https://logicframeco.com/go/tc-pla-black/github) | [Generic](https://logicframeco.com/go/tc-pla-black-search/github) | 1.75 mm PLA |
@@ -59,6 +61,13 @@ The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStu
 | tc-dock-v5-t-gauge | R1 T-gauge (one-time alignment template) | 1 | 19.6 | PLA | dock R1 kit: lines the dock up with the arm | [stl/dock_v5/t_gauge.stl](../stl/dock_v5/t_gauge.stl) |
 | **Total** | 20 distinct, 23 pieces, ~666 g | | | | | |
 
+### Tools
+
+- 2 mm hex key or driver (M3 button-head and countersunk screws) and 2.5 mm hex key (the 2 M3 x 40 socket-head screws).
+- Soldering iron to set the 15 heat-set inserts.
+- A printer that prints PLA and TPU (ours: a Bambu Lab P1S). The TPU parts are the two small cage pads here and the FR1 fin rays in section D.
+- Tape measure (the dock sits 310 mm from the pan axis) and scissors or a knife to cut the tape discs and strips.
+
 ## B. Per extra tool
 
 Each added tool needs its own coupler. Each extra tool also wants its own dock: repeat the dock rows of section A.
@@ -79,7 +88,7 @@ Each added tool needs its own coupler. Each extra tool also wants its own dock: 
 |---|---|---|---|---|---|---|
 | tc-heat-insert-m3-5.0x4 | M3 brass heat-set insert, 5.0 OD x 4 L | 4 | attach the optional R2 dock head (4) | none found | [Generic](https://logicframeco.com/go/tc-heat-insert-m3-5.0x4-search/github) | M3 thread, 5.0 OD, 4 long |
 | tc-m3x10-button | M3 x 10 button-head socket screw | 4 | attach the optional R2 dock head (4) | none found | [Generic](https://logicframeco.com/go/tc-m3x10-button-search/github) | M3 x 10 ISO 7380 |
-| tc-dock-v5-head-r2 | Optional R2 dock head (needs one jigsaw cut) (printed, 79.3 g PLA) | 1 | optional dock head that replaces the old wall top | [stl/dock_v5/head_R2.stl](../stl/dock_v5/head_R2.stl) | | |
+| tc-dock-v5-head-r2 | Optional R2 dock head (design only: not printed or fit-tested; needs one jigsaw cut) (printed, 80.1 g PLA) | 1 | optional dock head that replaces the old wall top | [stl/dock_v5/head_R2.stl](../stl/dock_v5/head_R2.stl) | | |
 
 
 ## D. FR1 fin-ray gripper tool (built, runs on the changer)
