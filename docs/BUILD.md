@@ -64,11 +64,11 @@ All 15 are M3, 4.0 mm bore x 6.7 mm long. Press each one in square with the sold
 | Cage, strap bosses (#11) | 2 | from the top |
 | Hub (#4) | 2 | mouth down |
 | Tool neck (FR1 body) (#25) | 4 | neck face |
-| Dock frame | 4 | under the clamp bars |
+| Dock frame (#41) | 4 | under the clamp bars |
 
 ## 4. Fasteners
 
-Every screw is M3.
+Every screw is M3 (the dock frame can also go down with 4 wood screws instead of tape; see step 7.3).
 
 | Screw | Qty | Where | Key |
 |---|---|---|---|
@@ -77,10 +77,10 @@ Every screw is M3.
 | M3 x 8 button head (#10, #13) | 5 | strap to cage (2), cage floor to ring (3) | 2 mm |
 | M3 x 40 socket head (#5) | 2 | up through the cage ears into the hub | 2.5 mm |
 | M3 x 10 countersunk (#29) | 4 | coupling plate to the tool neck | 2 mm |
-| M3 x 10 countersunk | 4 | dock clamp bars to the dock frame | 2 mm |
-| M3 x 8 button head + M3 washer | 1 | FR1 shaft screw | 2 mm |
-| M3 x 8 button head | 4 | FR1 cover to body (self-tapping) | 2 mm |
-| M3 x 25 button head + M3 nut | 2 | FR1: clamps each fin ray's root in its jaw | 2 mm |
+| M3 x 10 countersunk (#44) | 4 | dock clamp bars to the dock frame | 2 mm |
+| M3 x 8 button head + M3 washer (#32) | 1 | FR1 shaft screw | 2 mm |
+| M3 x 8 button head (#38) | 4 | FR1 cover to body (self-tapping) | 2 mm |
+| M3 x 25 button head + M3 nut (#36, #37) | 2 | FR1: clamps each fin ray's root in its jaw | 2 mm |
 
 Nothing on the master threads into bare plastic: every screw that carries the spring load goes into brass or into a servo horn.
 
@@ -104,12 +104,12 @@ The order below comes from the CAD notes (to confirm against the built arm).
 ![FR1 exploded](future_tools/fr1_exploded.png)
 
 1. **Coupling plate.** CA the 3 steel dowels (#28) into the plate (#27).
-2. **Inserts.** 4 inserts into the neck of the body.
+2. **Inserts.** 4 inserts (#25) into the neck of the body (#23).
 3. **Magnet.** Press the N52 6 x 3 magnet (#26) into the pocket in the neck underside; the pocket is open on one side on FR1. (to confirm: whether the magnet is also glued.)
-4. **Drive.** Rotor (#30) and shaft into the body; shaft screw M3 x 8 with a washer. The rotor floats on purpose (about 1 mm); don't clamp it.
-5. **Jaws.** Pinion in its pocket, both jaws on the racks (the second jaw is the first one turned 180°), cover on with 4x M3 x 8 (they self-tap).
-6. **Fin rays.** Push each fin ray's root block up into its jaw's shoe, put the M3 x 25 across the cheeks through the TPU into the nut in the hex trap, and tighten until snug only.
-7. **Plate on.** Coupling plate onto the neck with 4x M3 x 10 countersunk.
+4. **Drive.** Rotor (#30) and shaft (#31) into the body; shaft screw M3 x 8 with a washer (#32). The rotor floats on purpose (about 1 mm); don't clamp it.
+5. **Jaws.** Pinion (#33) in its pocket, both jaws (#34) on the racks (the second jaw is the first one turned 180°), cover (#24) on with 4x M3 x 8 (#38; they self-tap).
+6. **Fin rays.** Push each fin ray's (#35) root block up into its jaw's shoe, put the M3 x 25 (#36) across the cheeks through the TPU into the nut (#37) in the hex trap, and tighten until snug only.
+7. **Plate on.** Coupling plate (#27) onto the neck with 4x M3 x 10 countersunk (#29).
 
 Each extra tool needs one more coupler: plate, rotor, shaft, 3 dowels, 4 inserts, 4 M3 x 10 countersunk and a magnet (BOM section B).
 
@@ -117,10 +117,10 @@ Each extra tool needs one more coupler: plate, rotor, shaft, 3 dowels, 4 inserts
 
 ![Dock v5 retrofit](diagrams/dock_v5_retrofit.png)
 
-1. 4 inserts into the dock frame. Set the dock post's foot into the frame (it sits on the table, not on the frame) and clamp it with the front and back bars, 2x M3 x 10 countersunk each.
+1. 4 inserts (#41) into the dock frame (#40). Set the dock post's (#39) foot into the frame (it sits on the table, not on the frame) and clamp it with the front and back bars (#42, #43), 2x M3 x 10 countersunk (#44) each.
 2. **Place it.** The seated coupling face should be **310 mm from the arm's pan axis**. Lay the T-gauge flush on the frame's front face with its V nose in the front V-notch; its stem points at the pan axis. A thread through the gauge's two holes gives the sight line to the arm's base.
-3. Fix the frame to the table: double-sided (VHB or carpet) tape, or 4 wood screws (M4 / #6) through the countersunk corner holes.
-4. **R1 kit.** Stick the 2 stop pads to the dock wall with the tape discs, and the 2 cradle columns to the dock foot with the tape strips.
+3. Fix the frame to the table: double-sided (VHB or carpet) tape, or 4 wood screws (M4 or No. 6) through the countersunk corner holes (BOM row `tc-dock-table-fix`).
+4. **R1 kit.** Stick the 2 stop pads (#45) to the dock wall with the tape discs (#46), and the 2 cradle columns (#47) to the dock foot with the tape strips (#48).
 5. The dock post has a pocket for an optional second magnet in the floor; the tested build leaves it empty.
 
 ## 8. Run it
@@ -131,7 +131,6 @@ Design notes and the lock numbers: [DESIGN_v4.md](DESIGN_v4.md). Bench procedure
 
 ## 9. Known file notes
 
-- `step/master_v4/master_ring_v4.step` is the older v4 ring. The printed ring is v4q (`stl/master_v4/master_ring_v4q.stl`), which moved the 3 insert bores beside each spring.
-- `step/tool_fr1/fr1.step` is another revision and does not match the FR1 STLs (the STLs match what was printed).
 - `stl/dock_v5/dock_post_asbuilt.stl` and `stl/master_v4/dock_post_v4.stl` are two different dock posts (open vs. sealed magnet pocket), not the same part.
-- STEP files exist only for some printed parts; the STLs are the printed geometry.
+- Every printed part in BOM sections A and D has a STEP in `step/` next to its STL folder (same frame as the STL, volumes within 0.1 %). `step/tool_fr1/fr1.step` is the whole FR1 tool assembled. The two pads have one STEP each (`master_backpad_v4.step`, `master_farpad_v4.step`): PLA or TPU is a slicer choice.
+- `stl/dock_v5/head_R2.stl` (R2 head option) is a design only: never printed or fit-tested. Its skin and flanges are now joined to the wall (one solid), but the back skin still overlaps the as-built post's sloped back below the cut line by about 0.1 cm3, so check the fit before printing it.

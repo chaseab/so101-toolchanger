@@ -48,7 +48,7 @@ The v5 dock retrofit (stop pads, cradle columns, T-gauge and the R2 head option)
 Oct 30: a person drives the arm (teleop) to pick up a tool from the dock, three synced cameras, mostly sped up, no sound. [Video](https://github.com/chaseab/so101-toolchanger/releases/download/media-2026-10-30/manual_swap_teleop_multicam.mp4).
 
 ## Bill of materials
-**One tool changer (master + 1 tool coupler + 1 dock) = 20 printed parts (23 pieces, about 666 g) plus hardware.** Master 9 parts (11 pieces), tool coupler 3, dock 4 plus the 4-part R1 retrofit kit (5 pieces). Older versions, alternates, test coupons, the optional R2 dock head and the future tools are not counted. Full table with sizes, grams, filament, exact listings we bought and generic search links: [docs/BOM.md](docs/BOM.md) (and `docs/BOM.csv`). It has three sections: A one tool changer, B per extra tool, C optional and future.
+**One tool changer (master + 1 tool coupler + 1 dock) = 20 printed parts (23 pieces, about 666 g) plus hardware.** Master 9 parts (11 pieces), tool coupler 3, dock 4 plus the 4-part R1 retrofit kit (5 pieces). Older versions, alternates, test coupons, the optional R2 dock head and the future tools are not counted. Full table with sizes, grams, filament, exact listings we bought and generic search links: [docs/BOM.md](docs/BOM.md) (and `docs/BOM.csv`). It has four sections: A one tool changer, B per extra tool, C optional and future, D the FR1 gripper tool.
 
 Bought parts for one build:
 
@@ -68,9 +68,9 @@ Bought parts for one build:
 Each part, with its exact listing where we have one, is in [docs/BOM.md](docs/BOM.md).
 
 ## Build
-- Print the master and dock parts in section A of the BOM from `stl/` (`master_v4`, `dock_v5`) and the FR1 tool parts in section D from `stl/tool_fr1`; the BOM lists material and grams per part. `stl/tool_gt1` is the earlier gripper, kept for reference. STEP files are in `step/`.
-- Assemble with the hardware in the BOM: dowels (they press in at a print pause or are glued) in the ring's V grooves and the tool plate, ball plungers with springs, heat-set inserts, M3 screws, and one N52 6 x 3 magnet in the tool neck (the dock-floor pocket is optional and empty in the tested build).
-- The dock retrofit kit (R1) prints with no cutting; the R2 head needs one jigsaw cut. See `docs/diagrams/dock_v5_retrofit.png`.
+- Print the master and dock parts in section A of the BOM from `stl/` (`master_v4`, `dock_v5`) and the FR1 tool parts in section D from `stl/tool_fr1`; the BOM lists material and grams per part. `stl/tool_gt1` is the earlier gripper, kept for reference. Every printed part also has a STEP file in `step/`.
+- Assemble with the hardware in the BOM: dowels (pressed into the ring's V slots at a print pause, CA-glued into the tool plate), ball plungers with springs, heat-set inserts, M3 screws, and one N52 6 x 3 magnet in the tool neck (the dock-floor pocket is optional and empty in the tested build).
+- The dock retrofit kit (R1) prints with no cutting; the R2 head is a design option (not printed or fit-tested yet) and needs one jigsaw cut. See `docs/diagrams/dock_v5_retrofit.png`.
 - Design notes, lock-torque numbers and test results: `docs/DESIGN_v4.md`; bench procedure: `docs/RUNBOOK.html`.
 
 ## Run the scripted cycle
