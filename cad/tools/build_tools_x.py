@@ -24,7 +24,7 @@ from pathlib import Path
 from build123d import Box, Cone, Cylinder, Plane, Polygon, Pos, Rot, export_stl, extrude
 
 H = Path(__file__).resolve().parent
-CAD = H.parent / "cad"
+CAD = H.parent                 # cad/ (build_changer, build_gripper_tool)
 sys.path.insert(0, str(CAD))
 import build_changer as B          # noqa: E402
 import build_changer_v4 as V       # noqa: E402

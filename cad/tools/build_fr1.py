@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: CERN-OHL-W-2.0
-"""FR1: TPU fin ray parallel gripper for the SO-101 v4 tool changer.  2026-10-28, agent tc-tools2.
-Run:  python toolchanger/tools_x2/build_fr1.py
+"""FR1: TPU fin ray parallel gripper for the SO-101 v4 tool changer.  2026-10-28, agent tc-tools2; fin ray v3 10/31 (finray2).
+Run:  python cad/tools/build_fr1.py   (writes cad/tools/fr1/stl/*.stl + fr1/parts.json)
 Writes tools_x2/fr1/stl/*.stl (assembled pose at s = 0 = closed, TOOL frame) + fr1/parts.json.
 
 What it is: GT1's drive, unchanged inside (blade -> rotor_v4 -> gt_shaft -> m1.25 z16 pinion -> 2 racks, solid stops at
@@ -9,14 +9,17 @@ s = 0 / 21 mm per jaw = 0 / 120.3 deg), in a re-styled housing, with two TPU 95A
     internal feature (tunnel, grooves, stop posts, bores, insert pockets, magnet pocket, screw pilots) is GT1's.
   * jaws = GT1's jaw above z -47 (rack, tongue, keel, webs between the cover skirts: same sliding geometry) + a new
     "shoe" that clamps the fin ray's root.  The shoe's mouth is cut square to the fin ray's back flank (the clamp face of
-    the validated v3 profile), so the shoe's underside is slanted 24 deg: it looks like what it does.
-  * fin ray = gripper/tools/finray_geom.py v3 profile (H24, L50, 0.8 ribs at -55 deg, fillet 0.3; arbiter-validated
-    2026-09-25), 18 wide, root block 10 (was 6) so the pocket is deep enough to clamp, mounted with the FRONT flank parallel
-    to the tool axis (parallel jaws: the flanks stay parallel through the stroke, tips meet for thin wires).
+    the fin ray profile), so the shoe's underside is slanted 24.5 deg: it looks like what it does.
+  * fin ray = finray_geom.py profile (vendored next to this file), H24, L50, 18 wide, root block 10 (was 6) so the pocket is deep enough to
+    clamp, mounted with the FRONT flank parallel to the tool axis (parallel jaws: the flanks stay parallel through the stroke,
+    tips meet for thin wires).  Ribs: FR1 fin ray v3-ladder (finray2 10/31) = 6 x 1.0 mm leaning 15 deg toward the root, spread
+    root to tip, + ~0.45 mm barbs (0.5 drawn, 0.3 fillet; pitch 1.6, steep side up toward the root) on the last ~15 mm of the front flank (ending ~1.5 mm before the tip).  (The older
+    "v3" in finray_geom.DESIGN = 0.8 ribs at -55 deg, the FE-validated fan used by FR1 v1/v2; kept in fr1_v1/, fr1_v2/.)
 TPU attachment, no glue: the root block pushes up into the shoe pocket (3 walls + 2 cheeks, open toward the other jaw),
   one M3x25 button head across the cheeks THROUGH the TPU (3.4 hole) into an M3 nut in a hex trap.  Snug only.
 Grip: FORCE-limited (critic r1): run FR1 sessions with tool_session.apply_session_limits(bus, 0.05) -> <= 2.5 N per jaw, so a
-  full-close command can't crush the fin rays (v3 FE: 1.2-2.4 N at 5 mm, x 18/16).  Closed stop: the fin rays preload each other
+  full-close command can't crush the fin rays (v3-ladder beam sim, load square to the front flank: ~1.0 N/mm on a
+  13 mm Jenga stub -> cap at ~2.4 mm; v2 fan plateaued ~1.4 N; finray2/study6.py).  Closed stop: the fin rays preload each other
   2 mm (thin wires get >= 1.75 mm of squeeze per finger).  Open stop: 40 mm between the flanks.
 """
 import json
@@ -30,19 +33,24 @@ H = Path(__file__).resolve().parent
 sys.path.insert(0, str(H))
 from common import B, V, GT, bx, rbox, coupling, coupling_hardware, engrave_py, insert_leads, neck_insert_mouths  # noqa: E402
 
-sys.path.insert(0, str(H.parents[1] / "gripper" / "tools"))
 import finray_geom as FG  # noqa: E402
 
 OUT = H / "fr1" / "stl"
 # ---------------------------------------------------------------- fin ray (v3 profile, wider + deeper root)
 FR = dict(FG.DESIGN)
 # tpu-iter 10/30 (v2): back flank 2.0 -> 1.6, tip 1.5 -> 1.2 (beam sim V9: +5 % wrap (within sim noise), same force; see tpu_iter/TPU_ITER_1030.html); v1 kept in fr1_v1/
-FR.update(width=18.0, root_block=10.0, t_back=1.6, h_tip=1.2)
+# finray2 10/31 (v3): classic ladder, 6 ribs 1.0 at -15 deg spread over the whole finger (the -55 "fan" bunched its ribs in the last 13 mm
+#   with 0.7 mm slots), + 0.5 mm barbs on the front flank, steep side toward the root (pull-out toward the tip catches). Beam sim:
+#   2-4x stiffer mid-finger, same Jenga-stub force band, less wrap.  UNTESTED: coupon F2 (toolchanger/finray2/coupon) decides; v2 kept in fr1_v2/
+FR.update(width=18.0, root_block=10.0, t_back=1.6, h_tip=1.2, rib_angle=-15.0, t_rib=1.0, teeth=(0.5, 1.6, 35.0, 50.3))   # barbs only where a 12-15 mm Jenga stub sits (finray2 gate r3)
 L, HH, HT = FR["L"], FR["H"], FR["h_tip"]
-ALPHA = atan2(HH - HT, L)                    # 24.2 deg: front flank vs back flank
+ALPHA = atan2(HH - HT, L)                    # 24.5 deg: front flank vs back flank
 SA, CA = sin(ALPHA), cos(ALPHA)
 X_FRONT = -1.0                               # front flank SURFACE at s = 0: 1 mm past the centre, so at the closed stop the two
                                              # fin rays preload each other 2 mm (critic r1: a 1.5 mm wire got only 0.6 mm of squeeze)
+                                             # v3: X_FRONT stays on the SMOOTH face so the jaws/shoes are byte-identical to v2 (Y1 gate
+                                             # PASS stands); the 0.5 mm barbs add 1 mm, so the closed-stop preload is ~3 mm (finray2 = finray1 turned
+                                             # 180 deg about z: the barbs meet peak to peak, they do not interleave)
 SHOE_X_IN = 0.2                              # the rigid shoes stop at x 0.2 (only the TPU crosses the centre)
 XF = X_FRONT + FR["t_front"] / 2             # front flank centreline
 W2 = FR["width"] / 2
@@ -107,15 +115,19 @@ def shoe():
     # soften: edges along y on the outer side
     (xc, zc), (xd, zd) = xz(0, v_out), xz(0, v_in)
     for (px, pz), r in (((xb, zb), 6.0), ((xc, zc), 2.0), ((GT.WEB["x"][1], z45), 4.0), ((xd, zd), 0.6)):
-        try:                                              # cosmetic: keep the solid if OCC refuses one
-            e = s.edges().filter_by(Axis.Y).filter_by(lambda e: abs(e.center().X - px) < 0.3 and abs(e.center().Z - pz) < 0.3)
-            s = fillet(e, r)
+        e = s.edges().filter_by(Axis.Y).filter_by(lambda e: abs(e.center().X - px) < 0.3 and abs(e.center().Z - pz) < 0.3)
+        for rr in (r, 0.75 * r, 0.5 * r):                 # cosmetic: step the radius down, keep the solid if OCC refuses all
+            try:
+                s = fillet(e, rr)
+                break
+            except Exception as ex:
+                print("shoe fillet r", rr, "refused at", round(px, 1), round(pz, 1))
+    for rr in (0.8, 0.6, 0.4):
+        try:
+            s = fillet(s.edges().filter_by(Axis.Y, reverse=True).filter_by(lambda e: abs(abs(e.center().Y) - yo) < 0.01), rr)
+            break
         except Exception as ex:
-            print("shoe fillet skipped at", round(px, 1), round(pz, 1), ex)
-    try:
-        s = fillet(s.edges().filter_by(Axis.Y, reverse=True).filter_by(lambda e: abs(abs(e.center().Y) - yo) < 0.01), 0.8)
-    except Exception as ex:
-        print("cheek edge fillet skipped", ex)
+            print("cheek edge fillet r", rr, "refused")
     # pocket
     s -= _uv_prism([(-rb, -tb / 2 - CLR), (1.0, -tb / 2 - CLR), (1.0, v_in + 5), (-rb, v_in + 5)], -(W2 + CLR), W2 + CLR)
     # bolt (along y): 3.4 clearance, head on +y (button, sits on the cheek), nut trap 3.0 deep on -y

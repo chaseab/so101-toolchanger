@@ -15,9 +15,9 @@ from pathlib import Path
 from build123d import Box, Cylinder, Pos, Rot, Axis, fillet, chamfer
 
 H = Path(__file__).resolve().parent
-CAD = H.parent / "cad"
+CAD = H.parent                 # cad/ (build_changer, build_gripper_tool)
 sys.path.insert(0, str(CAD))
-sys.path.insert(0, str(H.parent / "tools_x"))
+sys.path.insert(0, str(H))
 import build_changer as B          # noqa: E402
 import build_changer_v4 as V       # noqa: E402
 import build_gripper_tool as GT    # noqa: E402

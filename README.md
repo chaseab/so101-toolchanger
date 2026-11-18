@@ -16,7 +16,7 @@ Links: [BOM](docs/BOM.md) · [STL files](stl/) · [STEP files](step/) · [Build 
 - **100-cycle run (Nov 2):** 100/100 picks locked on the first try, each passing a wiggle test, and 99/100 put-backs, all automatic. The other put-back was stopped by a false servo temperature reading. Median cycle 29.6 s. Raw logs and a column dictionary are in [`data/`](data/).
 - **Speed (Nov 5):** pick + put-back in 14.7 s over 4 runs, about half the Nov 2 time. The smooth-motion runner takes a free-air move in 9.4 s against 15.4 s for the stepped runner, with lower lift error and motor load.
 - **FR1 fin-ray gripper tool:** built and working on the changer. It sits in its own dock, and the arm picks it up, checks the lock and puts it back.
-- **Automatic dock finding (`find_dock2`):** the arm measures where the dock is by touch (a bracket of contacts across the dock, then the lip) and works out the pick pose from that. First live measurement of the dock Nov 8; finding a moved dock is the next test.
+- **Next goal, docking anywhere:** today the dock sits at a taught pose and needs no aiming jig. The goal is for the arm to pick up and park tools wherever the dock is placed.
 - **Off-angle seating:** on Nov 7 the master seated and locked with the gripper blade 30 deg off the tool rotor; the lead-in turned the rotor into place.
 
 Tested on one SO-101 with a scripted controller (no learned policy).
@@ -36,7 +36,7 @@ The master on the wrist locks onto the tool coupler with three pins in three ste
 ([SVG version](docs/diagrams/twist_lock_sequence.svg))
 
 ## Dock
-The v5 dock retrofit (stop pads, cradle columns, T-gauge and the R2 head option), drawn with the old post ghosted so the parts behind it show.
+The v5 dock retrofit (stop pads, cradle columns and the R2 head option), drawn with the old post ghosted so the parts behind it show.
 
 ![Dock v5 retrofit](docs/diagrams/dock_v5_retrofit.png)
 
@@ -48,7 +48,7 @@ The v5 dock retrofit (stop pads, cradle columns, T-gauge and the R2 head option)
 Oct 30: a person drives the arm (teleop) to pick up a tool from the dock, three synced cameras, mostly sped up, no sound. [Video](https://github.com/chaseab/so101-toolchanger/releases/download/media-2026-10-30/manual_swap_teleop_multicam.mp4).
 
 ## Bill of materials
-**One tool changer (master + 1 tool coupler + 1 dock) = 20 printed parts (23 pieces, about 666 g) plus hardware.** Master 9 parts (11 pieces), tool coupler 3, dock 4 plus the 4-part R1 retrofit kit (5 pieces). Older versions, alternates, test coupons, the optional R2 dock head and the future tools are not counted. Full table with sizes, grams, filament, exact listings we bought and generic search links: [docs/BOM.md](docs/BOM.md) (and `docs/BOM.csv`). It has four sections: A one tool changer, B per extra tool, C optional and future, D the FR1 gripper tool.
+**One tool changer (master + 1 tool coupler + 1 dock) = 19 printed parts (22 pieces, about 646 g) plus hardware.** Master 9 parts (11 pieces), tool coupler 3, dock 4 plus the 3-part R1 retrofit kit (4 pieces). Older versions, alternates, test coupons, the optional R2 dock head and T-gauge, and the future tools are not counted. Full table with sizes, grams, filament, exact listings we bought and generic search links: [docs/BOM.md](docs/BOM.md) (and `docs/BOM.csv`). It has four sections: A one tool changer, B per extra tool, C optional and future, D the FR1 gripper tool.
 
 Bought parts for one build:
 
@@ -84,14 +84,14 @@ The runner that produced the Nov 2 100-cycle results is in `swap/` (controller `
 `TC_FAKE_BUS=1` runs everything on a simulated bus for dry runs. The P11 paths are taught for one dock pose on one bench: re-teach them before running on another setup.
 
 ## Folder map
-- `cad/` CAD-as-code (build123d) for the master, docks and gripper tool, plus `cad/heads/` and `cad/tools/` for the future tools. Interference and lock-path checks are here too.
+- `cad/` CAD-as-code (build123d) for the master, docks and gripper tool, plus `cad/tools/` (FR1 and the shared coupler, `python cad/tools/build_fr1.py`) and `cad/heads/` for the future tools. Interference and lock-path checks are here too.
 - `stl/`, `step/` exported meshes of the current parts: `master_v4`, `dock_v5`, `tool_fr1` (the built tool), `tool_gt1` (the earlier gripper), plus `heads_*` for the future tools.
 - `swap/` arm control and test code: the P11 cycle runner (`nudge_web.py`, `cycle.py`, `programs.py`, see `swap/RUNNER.md`), plus earlier tools (capguard, jog, real_io, dockcycle, pick2, fakebus/sim_io, tests).
 - `sim/` MuJoCo contact model used by the sim twin.
 - `docs/` design notes (`DESIGN_v4.md`), runbook, `BOM.md` / `BOM.csv`, `diagrams/`, and `future_tools/`.
 - `data/` raw trial logs (100-cycle run, Nov 2) with a column dictionary.
 
-**Other tools:** `fr1` (fin-ray gripper, `cad/tools/`, `stl/tool_fr1`) is built and runs on the changer. The heads `hi5f`, `jg2` and `stamp2` (`cad/heads/`, `stl/heads_*`) are designs only. `docs/future_tools/` has renders of all four.
+**Other tools:** `fr1` (fin-ray gripper, `cad/tools/`, `stl/tool_fr1`) is built and runs on the changer. The heads `hi5f`, `jg2` and `stamp2` (`cad/heads/`, `stl/heads_*`) are designs only. `docs/future_tools/` has renders of the three heads.
 - `LICENSES/` license texts. `NOTICE` upstream credits.
 
 Not included: SO-ARM100 / Feetech servo meshes (get them upstream), calibration files, footage, print files (gcode/3mf). Trial logs are in `data/`.

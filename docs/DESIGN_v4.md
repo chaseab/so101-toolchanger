@@ -5,13 +5,13 @@ or run on the arm. The viewable summary is TOOLCHANGER_v4.html.
 
 ## Sources
 - Error budget: `analysis/error_budget.py` → `error_budget.json`. Linearised at the dock seat on the real SO-101 MJCF,
-  using the servo model fitted to real teleop logs (`sim/physics_v2`).
+  using the servo model fitted to real teleop logs (`sim/physics_v2`, not included in this repo).
 - Sim: `sim/geom.py` builds the collision geometry from the CAD constants. `sim/tcsim.py` runs the arm, the servos,
   the drop-off + pick-up cycle and the failure classes. `sim/mc.py` runs the Monte Carlo over the error budget.
 - Results: `sim/out/mc_*.jsonl`, `sweep_*.jsonl`, `summary.json`, `swap_v4.mp4`.
 - Swap routine: `swap/swap_routine.py` (state machine + calibration) and `swap/sim_io.py` (the MuJoCo adapter; the
   routine was tested through it).
-- CAD: `cad/build_changer_v4.py` → `cad/v4/` (imports v3.1 and overrides only what changed). Checks:
+- CAD: `cad/build_changer_v4.py` → `cad/v4/` (build output folder; the published meshes are in `stl/master_v4/`) (imports v3.1 and overrides only what changed). Checks:
   `cad/v4_checks.py` → `v4/checks_v4.json`.
 
 ## 1. Error budget (what the arm really does)
@@ -152,7 +152,7 @@ How far the dock may move after teaching, one axis at a time. Bands are "held" u
   0.8 mm).
 
 ### Routine Monte Carlo
-`sim/out/routine_v4.jsonl` runs the real `swap_routine.py` through `sim_io.py`.
+`sim/out/routine_v4.jsonl` (log not included) runs the real `swap_routine.py` through `sim_io.py`.
 
 ## 3. Kept from v3.1 (traceability)
 - Passive tools.

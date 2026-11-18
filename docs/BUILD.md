@@ -6,7 +6,7 @@ How to print and put together one tool changer: the master on the arm, one tool 
 
 ## 1. What you need
 
-- **Printed parts:** BOM section A (master, tool coupler, dock, R1 dock kit) and section D (FR1 tool). About 666 g of PLA for section A plus ~113 g for FR1, and a few grams of TPU 95A.
+- **Printed parts:** BOM section A (master, tool coupler, dock, R1 dock kit) and section D (FR1 tool). About 645 g of PLA for section A plus ~92 g of PLA and ~20 g of TPU for FR1 (plus 1.2 g of TPU pads in section A).
 - **Bought parts:** 9 steel dowels 3 x 12, 3 steel balls 5/32 in, 3 springs 5 x 0.7 x 10, 15 M3 heat-set inserts (4.0 bore x 6.7), 1 N52 magnet 6 x 3, M3 screws (table below), 1-2 C-clamps (to fix the dock frame to the table edge), double-sided tape, PTFE grease, CA gel.
 - **Tools:** 2 mm and 2.5 mm hex keys, a soldering iron for the inserts (a printed stand keeps the iron straight), flush cutters, a printer that also prints TPU.
 - **An SO-101 follower arm.** The master replaces the stock gripper body; the gripper servo moves into the master's cage.
@@ -50,7 +50,6 @@ The STLs are saved in the assembled position, not lying on the bed. Orient them 
 | `stl/master_v4/db_bar_front.stl`, `db_bar_back.stl` | 1 each | flip | |
 | `stl/dock_v5/cradle_col_L.stl`, `cradle_col_R.stl` | 1 each | as saved | R1 kit |
 | `stl/dock_v5/stop_pad.stl` | 2 | on its edge (90° about Y) | R1 kit |
-| `stl/dock_v5/t_gauge.stl` | 1 | as saved (flat) | R1 kit, one-time alignment template |
 
 Don't print `master_dowels_v4.stl`, `tool_fr1/pins.stl` or `tool_gt1/gt_pins.stl`: those are the steel dowels, shown for reference. `stl/tool_gt1/` is the earlier gripper and `stl/heads_*` are designs.
 
@@ -101,7 +100,7 @@ The order below comes from the CAD notes (to confirm against the built arm).
 
 ## 6. Tool (FR1)
 
-![FR1 exploded](future_tools/fr1_exploded.png)
+FR1 is panel C of the exploded drawing at the top of this page (parts #23-#38).
 
 1. **Coupling plate.** CA the 3 steel dowels (#28) into the plate (#27).
 2. **Inserts.** 4 inserts (#25) into the neck of the body (#23).
@@ -118,7 +117,7 @@ Each extra tool needs one more coupler: plate, rotor, shaft, 3 dowels, 4 inserts
 ![Dock v5 retrofit](diagrams/dock_v5_retrofit.png)
 
 1. 4 inserts (#41) into the dock frame (#40). Set the dock post's (#39) foot into the frame (it sits on the table, not on the frame) and clamp it with the front and back bars (#42, #43), 2x M3 x 10 countersunk (#44) each.
-2. **Place it.** The seated coupling face should be **310 mm from the arm's pan axis**. Lay the T-gauge flush on the frame's front face with its V nose in the front V-notch; its stem points at the pan axis. A thread through the gauge's two holes gives the sight line to the arm's base.
+2. **Place it.** The seated coupling face should be about **310 mm from the arm's pan axis**, facing the arm. No aiming jig is needed: re-teach the P11 paths for wherever you place the dock (section 8). An optional T-gauge template is in BOM section C; the tested build didn't use it.
 3. Fix the frame to the table: C-clamp it to the table edge (as used for the Nov 2 run; 1-2 clamps, count to confirm). Optional alternatives: double-sided (VHB or carpet) tape, or 4 wood screws (M4 or No. 6, not M3) through the countersunk corner holes (BOM row `tc-dock-table-fix`).
 4. **R1 kit.** Stick the 2 stop pads (#45) to the dock wall with the tape discs (#46), and the 2 cradle columns (#47) to the dock foot with the tape strips (#48).
 5. The dock post has a pocket for an optional second magnet in the floor; the tested build leaves it empty.
@@ -132,5 +131,5 @@ Design notes and the lock numbers: [DESIGN_v4.md](DESIGN_v4.md). Bench procedure
 ## 9. Known file notes
 
 - `stl/dock_v5/dock_post_asbuilt.stl` and `stl/master_v4/dock_post_v4.stl` are two different dock posts (open vs. sealed magnet pocket), not the same part.
-- Every printed part in BOM sections A and D has a STEP in `step/` next to its STL folder (same frame as the STL, volumes within 0.1 %). `step/tool_fr1/fr1.step` is the whole FR1 tool assembled. The two pads have one STEP each (`master_backpad_v4.step`, `master_farpad_v4.step`): PLA or TPU is a slicer choice.
+- Every printed part in BOM sections A and D has a STEP in `step/` next to its STL folder (same frame as the STL, volumes within 0.1 %). `step/tool_fr1/fr1.step` is the whole FR1 tool assembled. The FR1 fin rays are the v3 ladder profile that was printed (6 ribs leaning toward the root, small barbs near the tip); `cad/tools/build_fr1.py` rebuilds them. The two pads have one STEP each (`master_backpad_v4.step`, `master_farpad_v4.step`): PLA or TPU is a slicer choice.
 - `stl/dock_v5/head_R2.stl` (R2 head option) is a design only: never printed or fit-tested. Its skin and flanges are now joined to the wall (one solid), but the back skin still overlaps the as-built post's sloped back below the cut line by about 0.1 cm3, so check the fit before printing it.

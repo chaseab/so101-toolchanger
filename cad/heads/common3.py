@@ -18,7 +18,7 @@ from build123d import (Box, Cylinder, Cone, Plane, Pos, Rot, Axis, Compound, exp
                        chamfer, RegularPolygon, Location)
 
 H = Path(__file__).resolve().parent
-sys.path.insert(0, str(H.parent / "tools_x2"))
+sys.path.insert(0, str(H.parent / "tools"))
 from common import B, V, GT, bx, rbox, coupling, coupling_hardware, neck_core, insert_leads  # noqa: E402
 import build_tools_x as X  # noqa: E402
 

@@ -1,6 +1,6 @@
 # Bill of materials
 
-**One tool changer = 20 printed parts (23 pieces, about 666 g of filament: 665 g PLA + 1.2 g TPU) plus the hardware below.** That is the arm-side master + one tool coupler + one dock (v5, with the R1 retrofit kit). Older versions, alternates, test coupons, the optional R2 head, the FR1 tool (section D) and the future tools are not counted.
+**One tool changer = 19 printed parts (22 pieces, about 646 g of filament: 645 g PLA + 1.2 g TPU) plus the hardware below.** That is the arm-side master + one tool coupler + one dock (v5, with the R1 retrofit kit). Older versions, alternates, test coupons, the optional R2 head and T-gauge, the FR1 tool (section D) and the future tools are not counted.
 
 How to read it: "Exact (what we used)" is the listing we actually bought (Amazon /dp link). Where we do not have the exact listing it says "none found" and only the Generic search link is given. Links go through a Logic Frame Co redirect (affiliate links may be used). Price is the pack price from our order line, or `~` if unknown. Printed-part grams are approximate (CAD volume x solid PLA density). The same data is in `BOM.csv` (with `exact_url`, `generic_url`, `search_q`).
 
@@ -24,7 +24,6 @@ The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStu
 | tc-vhb-tape-disc | Double-sided tape disc D10 x 0.4 mm | 2 | stick the dock stop pads to the dock wall | none found | [Generic](https://logicframeco.com/go/tc-vhb-tape-disc-search/github) | 10 mm dia x 0.4 mm, cut from 1 in tape |
 | tc-vhb-tape-strip | Double-sided tape strip 23.6 x 14.8 x 0.4 mm | 2 | stick the dock cradle columns to the dock foot | none found | [Generic](https://logicframeco.com/go/tc-vhb-tape-strip-search/github) | 23.6 x 14.8 x 0.4 mm, cut from 1 in tape |
 | tc-dock-table-fix | Dock frame to table: 1-2 C-clamps to the table edge (as used); optional alternatives: double-sided tape or 4 wood screws M4 or No. 6 (not M3) | 1 | fix the dock table frame to the table (C-clamped for the Nov 2 run; clamp count to confirm) | generic | [Generic](https://www.amazon.com/s?k=VHB+double+sided+mounting+tape) | 1-2 C-clamps on the table edge (as used); optional: tape under the frame, or 4x M4 or No. 6 countersunk wood screws through the corner holes (not M3) |
-| tc-thread | Sewing thread or string, about 0.6 m | 1 | T-gauge sight line to the arm pan axis (one-time dock placement) | any |  | any thread |
 | tc-ptfe-grease | PTFE grease, 0.75 oz tube | 1 | light coat on the locking surfaces | none found | [Generic](https://logicframeco.com/go/tc-ptfe-grease-search/github) | all-purpose PTFE grease |
 | tc-ca-glue | Cyanoacrylate gel glue | 1 | only if you glue the steel dowels (they can instead press in at a print pause) and for the lead-in skirt | none found | [Generic](https://logicframeco.com/go/tc-ca-glue-search/github) | clear CA gel |
 | tc-pla-black | PLA filament 1.75 mm, black (2 x 1 kg) | 1 | most printed parts | [Exact (what we used)](https://logicframeco.com/go/tc-pla-black/github) | [Generic](https://logicframeco.com/go/tc-pla-black-search/github) | 1.75 mm PLA |
@@ -54,12 +53,11 @@ The SO-101 arm itself is TheRobotStudio's design: https://github.com/TheRobotStu
 | tc-dock-db-frame | Dock table frame | 1 | 86.9 | PLA | dock: base that clamps to the table | [stl/master_v4/db_frame.stl](../stl/master_v4/db_frame.stl) |
 | tc-dock-db-bar-front | Front clamp bar | 1 | 25.1 | PLA | dock: clamps the post, arm side | [stl/master_v4/db_bar_front.stl](../stl/master_v4/db_bar_front.stl) |
 | tc-dock-db-bar-back | Back clamp bar | 1 | 17.5 | PLA | dock: clamps the post, back side | [stl/master_v4/db_bar_back.stl](../stl/master_v4/db_bar_back.stl) |
-| **Dock R1 kit** | 4 distinct, 5 pieces, ~67.4 g | | | | | |
+| **Dock R1 kit** | 3 distinct, 4 pieces, ~47.8 g | | | | | |
 | tc-dock-v5-cradle-col-l | R1 cradle column, left | 1 | 23.7 | PLA | dock R1 kit: guides the tool body into the dock | [stl/dock_v5/cradle_col_L.stl](../stl/dock_v5/cradle_col_L.stl) |
 | tc-dock-v5-cradle-col-r | R1 cradle column, right | 1 | 23.7 | PLA | dock R1 kit: guides the tool body into the dock | [stl/dock_v5/cradle_col_R.stl](../stl/dock_v5/cradle_col_R.stl) |
 | tc-dock-v5-stop-pad | R1 stop pad, D10 round (2 needed) | 2 | 0.2 | PLA | dock R1 kit: sets the plate gap to the wall | [stl/dock_v5/stop_pad.stl](../stl/dock_v5/stop_pad.stl) |
-| tc-dock-v5-t-gauge | R1 T-gauge (one-time alignment template) | 1 | 19.6 | PLA | dock R1 kit: lines the dock up with the arm | [stl/dock_v5/t_gauge.stl](../stl/dock_v5/t_gauge.stl) |
-| **Total** | 20 distinct, 23 pieces, ~666 g | | | | | |
+| **Total** | 19 distinct, 22 pieces, ~646 g | | | | | |
 
 ### Tools
 
@@ -88,6 +86,7 @@ Each added tool needs its own coupler. Each extra tool also wants its own dock: 
 |---|---|---|---|---|---|---|
 | tc-heat-insert-m3-5.0x4 | M3 brass heat-set insert, 5.0 OD x 4 L | 4 | attach the optional R2 dock head (4) | none found | [Generic](https://logicframeco.com/go/tc-heat-insert-m3-5.0x4-search/github) | M3 thread, 5.0 OD, 4 long |
 | tc-m3x10-button | M3 x 10 button-head socket screw | 4 | attach the optional R2 dock head (4) | none found | [Generic](https://logicframeco.com/go/tc-m3x10-button-search/github) | M3 x 10 ISO 7380 |
+| tc-dock-v5-t-gauge | Optional T-gauge (alignment template; not used in the tested build) (printed, 19.6 g PLA) | 1 | optional: a flat template that sits in the frame's front V-notch; the tested dock was placed and its paths taught without it | [stl/dock_v5/t_gauge.stl](../stl/dock_v5/t_gauge.stl) | | |
 | tc-dock-v5-head-r2 | Optional R2 dock head (design only: not printed or fit-tested; needs one jigsaw cut) (printed, 80.1 g PLA) | 1 | optional dock head that replaces the old wall top | [stl/dock_v5/head_R2.stl](../stl/dock_v5/head_R2.stl) | | |
 
 
@@ -112,7 +111,7 @@ This is the tool that is built and running. Its coupler (plate, rotor, shaft, th
 | tc-fr1-cover | Bottom cover | 1 | 9.8 | PLA | tool: closes the underside of the body | [stl/tool_fr1/cover.stl](../stl/tool_fr1/cover.stl) |
 | tc-fr1-jaw1 | Jaw | 2 | 15.4 | PLA | tool: one STL, the second jaw is the same part rotated 180 deg | [stl/tool_fr1/jaw1.stl](../stl/tool_fr1/jaw1.stl) |
 | tc-fr1-pinion | Pinion | 1 | 2.0 | PLA | tool: drives the two jaws | [stl/tool_fr1/pinion.stl](../stl/tool_fr1/pinion.stl) |
-| tc-fr1-finray1 | TPU fin ray | 2 | 10.8 | TPU | tool: soft fin-ray finger on each jaw; one STL, the second is the same part rotated 180 deg | [stl/tool_fr1/finray1.stl](../stl/tool_fr1/finray1.stl) |
-| **Total** | 5 distinct, 7 pieces, ~113 g | | | | | |
+| tc-fr1-finray1 | TPU fin ray | 2 | 10.2 | TPU | tool: soft fin-ray finger on each jaw; one STL, the second is the same part rotated 180 deg | [stl/tool_fr1/finray1.stl](../stl/tool_fr1/finray1.stl) |
+| **Total** | 5 distinct, 7 pieces, ~112 g | | | | | |
 
 The other tool designs (JG2, HI5F, STAMP2) are concept designs and are not part of the changer BOM. The GT1 gripper is an earlier tool and is not listed. See [docs/future_tools](future_tools/README.md) and the `stl/heads_*` and `stl/tool_*` folders.
